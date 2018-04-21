@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import Helmet from "../common/Helmet";
-import {Button, Col, ControlLabel, Form, FormControl, FormGroup} from "react-bootstrap";
 import {connect} from "react-redux";
-import './login.css';
 import {push} from "react-router-redux";
-import {login} from "../../actions/login";
+import {login, registration} from "../../actions/login";
+import ShowIf from "../common/ShowIf";
+import './login.css';
 
 class Login extends Component {
 
@@ -14,37 +14,35 @@ class Login extends Component {
 		}
 	}
 
-	submit(e) {
-		e.preventDefault();
+	login() {
 		this.props.dispatch(login(this.name.value, this.password.value));
 		this.props.dispatch(push('/index'));
+	}
+
+	registration() {
+		this.props.dispatch(registration(this.name.value));
 	}
 
 	render() {
 		return (
 			<div className="container_login">
 				<Helmet title='Login'/>
-				<Form horizontal>
-					<FormGroup controlId="formHorizontalName">
-						<Col componentClass={ControlLabel} sm={2}>
-							Name
-						</Col>
-						<Col sm={10}>
-							<FormControl type="text" placeholder="name" inputRef={ref => { this.name = ref; }}/>
-						</Col>
-					</FormGroup>
-
-					<FormGroup controlId="formHorizontalPassword">
-						<Col componentClass={ControlLabel} sm={2}>
-							Password
-						</Col>
-						<Col sm={10}>
-							<FormControl type="password" placeholder="Password" inputRef={ref => { this.password = ref; }}/>
-						</Col>
-					</FormGroup>
-
-					<Button type="submit" onClick={this.submit.bind(this)}>Sign in</Button>
-				</Form>
+				<ShowIf show={true}>
+					<div className="error_login">
+						Incorrect login
+					</div>
+				</ShowIf>
+				<div className="form_login">
+					<div className="title_login">
+						WELCOME TO VIM
+					</div>
+					<input type="text" ref={ref => this.name = ref}/>
+					<input type="password" ref={ref => this.password = ref}/>
+					<button onClick={this.login.bind(this)}>Login</button>
+					<div className="delimiter"/>
+					<button onClick={this.registration.bind(this)}>Registration</button>
+				</div>
+				<div className="background_login"/>
 			</div>
 		);
 	}

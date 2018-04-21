@@ -7,7 +7,6 @@
 }
 
 .scroll-container_index {
-    background-color: #fafafa;
     overflow-y: scroll;
     height: 100%;
     margin-right: -15px;

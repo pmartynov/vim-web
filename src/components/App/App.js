@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {withWrapper} from "create-react-server/wrapper";
 import './app.css';
 import Header from "../Header/Header";
+import Modal from "../Modal/Modal";
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
 				<div className="body_app">
 					{this.props.children}
 				</div>
+				<Modal />
 			</div>
 		);
 	}
