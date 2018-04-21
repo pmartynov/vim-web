@@ -32,6 +32,7 @@ class Header extends Component {
 						Upload photo
 					</button>
 				</ShowIf>
+				<div className="logo_header"/>
 			</div>
 		);
 	}

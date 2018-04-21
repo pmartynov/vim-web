@@ -5,6 +5,7 @@ import {withWrapper} from "create-react-server/wrapper";
 import {connect} from "react-redux";
 import {getPosts} from "../../actions/posts";
 import Post from "../Post/Post";
+import {Scrollbars} from "react-custom-scrollbars";
 
 class Index extends Component {
 
@@ -16,10 +17,14 @@ class Index extends Component {
 
 	getPostsComponents() {
 		const posts = [];
-		for(let post in this.props.posts) {
+		for (let post in this.props.posts) {
 			posts.push(<Post postId={post} key={post}/>)
 		}
 		return posts;
+	}
+
+	renderScrollbarContainer() {
+		return <div className="scroll-container_index"/>
 	}
 
 	render() {
@@ -27,10 +32,14 @@ class Index extends Component {
 			return null;
 		}
 		return (
-			<div className="container_index">
+			<Scrollbars
+				renderView={this.renderScrollbarContainer.bind(this)}
+			>
 				<Helmet title='Index'/>
-				{this.getPostsComponents()}
-			</div>
+				<div className="container_index">
+					{this.getPostsComponents()}
+				</div>
+			</Scrollbars>
 		);
 	}
 }
