@@ -13,6 +13,13 @@ export default function auth(state = initialState, action) {
 				postingKey: action.postingKey,
 				userId: action.userId
 			};
+		case 'LOGOUT':
+			return {
+				...state,
+				user: '',
+				postingKey: '',
+				userId: 0
+			};
 		default:
 			return state;
 	}

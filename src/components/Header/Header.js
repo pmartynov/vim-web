@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import {withWrapper} from "create-react-server/wrapper";
 import './header.css';
 import {createPost} from "../../actions/post";
+import {logout} from "../../actions/login";
+import ShowIf from "../common/ShowIf";
 
 class Header extends Component {
 
@@ -11,19 +13,25 @@ class Header extends Component {
 		this.props.dispatch(createPost(event.target.files[0]));
 	}
 
+	logout() {
+		this.props.dispatch(logout())
+	}
+
 	render() {
 		return (
 			<div className="container_header">
-				<div className="logout_header">
-					<div className="logout-img_header"/>
-				</div>
-				<button className="create_header">
-					<input type="file"
-								 className="input-img_header"
-								 accept="image/*"
-								 onChange={this.imageChanged.bind(this)}/>
-					Upload photo
-				</button>
+				<ShowIf show={this.props.authorized}>
+					<div className="logout_header" onClick={this.logout.bind(this)}>
+						<div className="logout-img_header"/>
+					</div>
+					<button className="create_header">
+						<input type="file"
+									 className="input-img_header"
+									 accept="image/*"
+									 onChange={this.imageChanged.bind(this)}/>
+						Upload photo
+					</button>
+				</ShowIf>
 			</div>
 		);
 	}
@@ -31,7 +39,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-
+		authorized: state.auth.user && state.auth.userId && state.auth.postingKey
 	}
 };
 

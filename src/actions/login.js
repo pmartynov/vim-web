@@ -1,3 +1,5 @@
+import {push} from "react-router-redux";
+
 export function login(user, postingKey) {
 	return dispatch => {
 		dispatch({
@@ -6,5 +8,14 @@ export function login(user, postingKey) {
 			postingKey,
 			userId: 1
 		});
+	}
+}
+
+export function logout() {
+	return dispatch => {
+		dispatch({
+			type: "LOGOUT"
+		});
+		dispatch(push('/login'));
 	}
 }
