@@ -2,15 +2,15 @@ import React, {Component} from "react";
 import {withWrapper} from "create-react-server/wrapper";
 import './post.css';
 import {connect} from "react-redux";
+import {changeLike} from "../../actions/post";
 
 class Post extends Component {
 
 	like() {
-
+		this.props.dispatch(changeLike(this.props.postId));
 	}
 
 	render() {
-		console.log(this.props);
 		const style = {
 			backgroundImage: `url("${this.props.url}")`,
 		};
@@ -39,8 +39,10 @@ class Post extends Component {
 }
 
 const mapStateToProps = (state, props) => {
+	const post = state.posts[props.postId];
 	return {
-		...state.posts[props.postId]
+		...post,
+		liked: post.likes.includes(state.auth.userId)
 	}
 };
 

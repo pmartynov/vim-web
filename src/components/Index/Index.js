@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {getPosts} from "../../actions/posts";
 import Post from "../Post/Post";
 
-export class Index extends Component {
+class Index extends Component {
 
 	constructor(props) {
 		super(props);

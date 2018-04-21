@@ -2,23 +2,37 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withWrapper} from "create-react-server/wrapper";
 import './header.css';
+import {createPost} from "../../actions/post";
 
-export class Header extends Component {
+class Header extends Component {
+
+	imageChanged(event) {
+		event.preventDefault();
+		this.props.dispatch(createPost(event.target.files[0]));
+	}
 
 	render() {
 		return (
 			<div className="container_header">
 				<div className="logout_header">
-					<div className="logout-img_header" />
+					<div className="logout-img_header"/>
 				</div>
-				<button className="create_header">Upload photo</button>
+				<button className="create_header">
+					<input type="file"
+								 className="input-img_header"
+								 accept="image/*"
+								 onChange={this.imageChanged.bind(this)}/>
+					Upload photo
+				</button>
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = (state) => {
-	return {}
+	return {
+
+	}
 };
 
 export default withWrapper(connect(mapStateToProps)(Header));

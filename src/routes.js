@@ -7,7 +7,6 @@ import Index from "./components/Index/Index";
 import PrivateRoute from "./components/PriveteRoute/PrivateRoute";
 
 export function getRoutes() {
-
 	return (
 		<App>
 			<Switch>

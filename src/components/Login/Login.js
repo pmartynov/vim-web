@@ -6,7 +6,7 @@ import './login.css';
 import {push} from "react-router-redux";
 import {login} from "../../actions/login";
 
-export class Login extends Component {
+class Login extends Component {
 
 	componentDidMount() {
 		if (this.props.isAuth) {

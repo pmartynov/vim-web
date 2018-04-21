@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {withWrapper} from "create-react-server/wrapper";
 import './app.css';
-import {Header} from "../Header/Header";
+import Header from "../Header/Header";
 
-export class App extends Component {
+class App extends Component {
 
 	render() {
 		return (

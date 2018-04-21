@@ -7,11 +7,17 @@ import createBrowserHistory from "history/createBrowserHistory";
 import {ConnectedRouter} from "react-router-redux";
 import {getRoutes} from "./routes";
 
+let store;
+
+export function getStore() {
+	return store;
+}
+
 export default ({state, props, req}) => {
 
 	let history = (typeof window !== 'undefined') ? createBrowserHistory() : createMemoryHistory();
 
-	const store = createStore(state, history);
+	store = createStore(state, history);
 
 	if (typeof window !== 'undefined') {
 		return (

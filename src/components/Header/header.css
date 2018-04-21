@@ -12,6 +12,8 @@
     border: 0;
     border-radius: 10px;
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
 }
 
 .logout_header {
@@ -28,6 +30,15 @@
     width: 14px;
     height: 14px;
     background-image: url("/images/logout.svg");
+}
+
+.input-img_header {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
 }
 
 @media (max-width: 920px) {
