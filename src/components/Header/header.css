@@ -1,0 +1,15 @@
+.container_header {
+    height: 80px;
+    width: 100%;
+}
+
+.log-btn_header {
+    margin: 20px 140px;
+    width: 160px;
+    height: 40px;
+    float: right;
+    background-color: #0029ff;
+    border: 0;
+    border-radius: 10px;
+    color: #ffffff;
+}

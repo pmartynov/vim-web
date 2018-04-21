@@ -1,0 +1,96 @@
+.container_post {
+    width: 280px;
+    height: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.photo_post {
+    width: 100%;
+    height: 280px;
+    background-color: green;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+}
+
+.hash-con_post {
+    width: 100%;
+    flex-grow: 1;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hash_post {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: #191919;
+}
+
+.money_post, .likes_post {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: #191919;
+}
+
+.likes_post {
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 0 25px;
+}
+
+
+.money_post {
+    bottom: 0;
+    left: 0;
+    border-radius: 0 25px 0 0;
+}
+
+.liked-btn_post, .like-btn_post {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    background-color: #191919;
+}
+
+.like-btn_post:hover {
+    background-color: #ff0000;
+}
+
+.liked-btn_post {
+    background-color: #ffffff;
+}
+
+.liked-btn_post:hover {
+    background-color: #191919;
+}
+
+.like_post {
+    width: 20px;
+    height: 18px;
+    margin: 12px auto 0;
+    background-image: url('/images/like.svg');
+}
+
+.liked-btn_post > .like_post {
+    background-image: url('/images/liked.svg');
+}

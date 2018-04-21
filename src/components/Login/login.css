@@ -1,0 +1,14 @@
+.container_login {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: right;
+    width: 450px;
+    margin: auto;
+}
+
+@media (max-width: 450px) {
+    .container_login {
+        width: 100%;
+    }
+}
