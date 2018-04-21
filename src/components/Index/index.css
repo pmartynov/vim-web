@@ -1,10 +1,14 @@
 .container_index {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: #fafafa;
-    padding: 20px;
+    padding: 0 140px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
 }
 
+@media (max-width: 920px) {
+    .container_index {
+        padding: 20px;
+    }
+}

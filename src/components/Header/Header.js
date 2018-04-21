@@ -8,7 +8,10 @@ export class Header extends Component {
 	render() {
 		return (
 			<div className="container_header">
-				<button className="log-btn_header">Upload photo</button>
+				<div className="logout_header">
+					<div className="logout-img_header" />
+				</div>
+				<button className="create_header">Upload photo</button>
 			</div>
 		);
 	}

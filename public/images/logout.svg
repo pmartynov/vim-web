@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <g fill="none" fill-rule="evenodd" stroke="#BABABA" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.7 10.3L13 7 9.7 3.7"/>
+        <path d="M4.897 6.85c.084 0 .153.069.153.15a.15.15 0 0 1-.153.15h7.206A.153.153 0 0 1 11.95 7a.15.15 0 0 1 .153-.15H4.897z"/>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 1H1.547C1.245 1 1 1.403 1 1.902v10.196c0 .498.245.902.547.902H5"/>
+    </g>
+</svg>

@@ -1,27 +1,44 @@
 import React, {Component} from "react";
 import Helmet from "../common/Helmet";
 import './index.css';
-import Button from "react-bootstrap/es/Button";
 import {withWrapper} from "create-react-server/wrapper";
-import {createAccount} from "../../services/account";
-import {Post} from "../Post/Post";
+import {connect} from "react-redux";
+import {getPosts} from "../../actions/posts";
+import Post from "../Post/Post";
 
 export class Index extends Component {
 
-	send() {
-		let result = createAccount();
-		console.log(result);
+	constructor(props) {
+		super(props);
+		props.dispatch(getPosts());
+		this.getPostsComponents.bind(this);
+	}
+
+	getPostsComponents() {
+		const posts = [];
+		for(let post in this.props.posts) {
+			posts.push(<Post postId={post} key={post}/>)
+		}
+		return posts;
 	}
 
 	render() {
+		if (this.props.posts.length) {
+			return null;
+		}
 		return (
 			<div className="container_index">
 				<Helmet title='Index'/>
-
-				<Post />
+				{this.getPostsComponents()}
 			</div>
 		);
 	}
 }
 
-export default withWrapper(Index);
+const mapStateToProps = (state) => {
+	return {
+		posts: state.posts
+	}
+};
+
+export default withWrapper(connect(mapStateToProps)(Index));

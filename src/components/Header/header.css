@@ -1,10 +1,10 @@
 .container_header {
     height: 80px;
     width: 100%;
+    padding: 20px 140px;
 }
 
-.log-btn_header {
-    margin: 20px 140px;
+.create_header {
     width: 160px;
     height: 40px;
     float: right;
@@ -12,4 +12,26 @@
     border: 0;
     border-radius: 10px;
     color: #ffffff;
+}
+
+.logout_header {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    float: right;
+}
+
+.logout-img_header {
+    margin: 13px 15px;
+    width: 14px;
+    height: 14px;
+    background-image: url("/images/logout.svg");
+}
+
+@media (max-width: 920px) {
+    .container_header {
+        padding: 20px;
+    }
 }

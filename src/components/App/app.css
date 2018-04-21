@@ -27,6 +27,7 @@ body {
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
+    min-width: 330px;
 }
 
 .main_app {
@@ -34,7 +35,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    width: 1440px;
+    width: 100%;
     min-height: 100vh;
     margin: auto;
     overflow: hidden;
