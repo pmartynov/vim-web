@@ -1,26 +1,16 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
+import React from "react";
 import Header from "../Header/Header";
-import Modal from "../Modal/Modal";
+import Global from "../Global/Global";
 import './app.css';
 
-class App extends Component {
+const App = ({children}) => (
+	<div className="main_app">
+		<Header/>
+		<div className="body_app">
+			{children}
+		</div>
+		<Global/>
+	</div>
+);
 
-	render() {
-		return (
-			<div className="main_app">
-				<Header />
-				<div className="body_app">
-					{this.props.children}
-				</div>
-				<Modal />
-			</div>
-		);
-	}
-}
-
-const mapStateToProps = (state) => {
-	return {}
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
