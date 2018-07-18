@@ -20,7 +20,7 @@ class CssUtils {
 }
 
 function getWorkingWidth() {
-	const workingPadding = parseInt(CssUtils.getProperty('--working-padding')) * 2;
+	const workingPadding = parseInt(CssUtils.getProperty('--working-padding'), 10) * 2;
 	let result = Math.floor((AppUtils.getWidth() - workingPadding) / Constants.POST_WIDTH);
 	result = (result || 1) * Constants.POST_WIDTH;
 	return result + 'px';

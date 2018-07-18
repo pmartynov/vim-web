@@ -1,14 +1,7 @@
-.main_app {
-    position: relative;
-}
-
 .container_app {
     position: relative;
     width: 100vw;
     height: calc(100vh - var(--header--height));
     background-color: #fafafa;
     overflow: hidden;
-}
-
-.body_app {
 }
