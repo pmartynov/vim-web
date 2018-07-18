@@ -1,10 +1,38 @@
-import React, {Fragment} from "react";
+import React, {Component, Fragment} from "react";
 import Modal from "../Modal/Modal";
+import {connect} from "react-redux";
+import AppUtils from "../../utils/AppUtils";
 
-const Global = () => (
-	<Fragment>
-		<Modal/>
-	</Fragment>
-);
+class Global extends Component {
 
-export default Global;
+	constructor(props) {
+		super(props);
+		this.resize = this.resize.bind(this);
+	}
+
+	componentDidMount() {
+		window.addEventListener('resize', this.resize);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.resize);
+	}
+
+	resize() {
+		this.props.dispatch({
+			type: 'WINDOW_SET_SIZE',
+			width: AppUtils.getWidth(),
+			height: AppUtils.getHeight()
+		});
+	}
+
+	render() {
+		return (
+			<Fragment>
+				<Modal/>
+			</Fragment>
+		);
+	}
+}
+
+export default connect()(Global);
