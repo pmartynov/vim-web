@@ -1,13 +1,14 @@
 import React, {Component, Fragment} from "react";
 import Modal from "../Modal/Modal";
 import {connect} from "react-redux";
-import AppUtils from "../../utils/AppUtils";
+import CssUtils from "../../utils/CssUtils";
 
 class Global extends Component {
 
 	constructor(props) {
 		super(props);
 		this.resize = this.resize.bind(this);
+		CssUtils.updateGlobalCssProperties();
 	}
 
 	componentDidMount() {
@@ -19,11 +20,7 @@ class Global extends Component {
 	}
 
 	resize() {
-		this.props.dispatch({
-			type: 'WINDOW_SET_SIZE',
-			width: AppUtils.getWidth(),
-			height: AppUtils.getHeight()
-		});
+		CssUtils.updateGlobalCssProperties();
 	}
 
 	render() {
