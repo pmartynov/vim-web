@@ -4,8 +4,8 @@ import AppUtils from "./AppUtils";
 class CssUtils {
 
 	static updateGlobalCssProperties() {
-		CssUtils.setProperty('--WORKING-WIDTH',
-			Math.floor(AppUtils.getWidth() / Constants.POST_WIDTH) * Constants.POST_WIDTH + ' px')
+		CssUtils.setProperty('--working-width',
+			Math.floor(AppUtils.getWidth() / Constants.POST_WIDTH) * Constants.POST_WIDTH + 'px')
 	}
 
 	static getProperty(name) {

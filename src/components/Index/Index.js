@@ -1,10 +1,9 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import Helmet from "../common/Helmet";
 import './index.css';
 import {connect} from "react-redux";
 import {getPosts} from "../../actions/posts";
 import Post from "../Post/Post";
-import {Scrollbars} from "react-custom-scrollbars";
 
 class Index extends Component {
 
@@ -22,23 +21,18 @@ class Index extends Component {
 		return posts;
 	}
 
-	renderScrollbarContainer() {
-		return <div className="scroll-container_index"/>
-	}
 
 	render() {
 		if (this.props.posts.length) {
 			return null;
 		}
 		return (
-			<Scrollbars
-				renderView={this.renderScrollbarContainer.bind(this)}
-			>
+			<Fragment>
 				<Helmet title='Index'/>
 				<div className="container_index">
 					{this.getPostsComponents()}
 				</div>
-			</Scrollbars>
+			</Fragment>
 		);
 	}
 }

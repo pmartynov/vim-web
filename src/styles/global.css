@@ -1,6 +1,7 @@
 :root {
-    --POST-WIDTH: 300px;
-    --WORKING-WIDTH: 1200px;
+    --post-width: 300px;
+    --working-width: 1200px;
+    --header--height: 80px;
 }
 
 @font-face {
@@ -26,5 +27,11 @@
 
 body {
     font: 14px OpenSans-Light;
-    min-width: var(--POST-WIDTH)
+    min-width: var(--post-width);
+    width: 100vw;
+    height: 100vh;
+}
+
+div {
+    box-sizing: border-box;
 }

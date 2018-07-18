@@ -1,19 +1,16 @@
 .main_app {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    width: 100%;
-    min-height: 100vh;
-    margin: auto;
+    position: relative;
+}
+
+.container_app {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - var(--header--height));
+    background-color: #fafafa;
     overflow: hidden;
 }
 
 .body_app {
-    position: relative;
-    flex-grow: 1;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background-color: #fafafa;
-    overflow: hidden;
+    margin: auto;
+    width: var(--working-width);
 }
