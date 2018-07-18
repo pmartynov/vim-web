@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {withWrapper} from "create-react-server/wrapper";
-import './app.css';
 import Header from "../Header/Header";
 import Modal from "../Modal/Modal";
+import './app.css';
 
 class App extends Component {
 
@@ -24,4 +23,4 @@ const mapStateToProps = (state) => {
 	return {}
 };
 
-export default withWrapper(connect(mapStateToProps)(App));
+export default connect(mapStateToProps)(App);

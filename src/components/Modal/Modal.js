@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {withWrapper} from "create-react-server/wrapper";
 import {connect} from "react-redux";
 import ShowIf from "../common/ShowIf";
 import {push} from "react-router-redux";
@@ -44,4 +43,4 @@ const mapStateToProps = (state) => {
 	}
 };
 
-export default withWrapper(connect(mapStateToProps)(Modal));
+export default connect(mapStateToProps)(Modal);

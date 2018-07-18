@@ -1,31 +1,24 @@
 import React from "react";
 import {Provider} from "react-redux";
 import {WrapperProvider} from "create-react-server/wrapper";
-import createStore from "./store";
 import createMemoryHistory from "history/createMemoryHistory";
 import createBrowserHistory from "history/createBrowserHistory";
 import {ConnectedRouter} from "react-router-redux";
-import {getRoutes} from "./routes";
+import {getRoutes, getServerRouter} from "./routes";
+import {getStore} from "./store";
+import AppUtils from "./utils/AppUtils";
 
-let store;
+export default ({state, props}) => {
 
-export function getStore() {
-	return store;
-}
+	let history = (AppUtils.isBrowser) ? createBrowserHistory() : createMemoryHistory();
 
-export default ({state, props, req}) => {
+	const store = getStore(state, history);
 
-	let history = (typeof window !== 'undefined') ? createBrowserHistory() : createMemoryHistory();
-
-	store = createStore(state, history);
-
-	if (typeof window !== 'undefined') {
+	if (AppUtils.isBrowser) {
 		return (
 			<Provider store={store}>
 				<ConnectedRouter history={history}>
-					<WrapperProvider initialProps={props}>
-						{getRoutes()}
-					</WrapperProvider>
+					{getRoutes()}
 				</ConnectedRouter>
 			</Provider>
 		)
@@ -34,7 +27,7 @@ export default ({state, props, req}) => {
 	return (
 		<Provider store={store}>
 			<WrapperProvider initialProps={props}>
-				{getRoutes()}
+				{getServerRouter()}
 			</WrapperProvider>
 		</Provider>
 	)

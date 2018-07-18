@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {withWrapper} from "create-react-server/wrapper";
 import './post.css';
 import {connect} from "react-redux";
 import {changeLike} from "../../actions/post";
@@ -46,4 +45,4 @@ const mapStateToProps = (state, props) => {
 	}
 };
 
-export default withWrapper(connect(mapStateToProps)(Post));
+export default connect(mapStateToProps)(Post);

@@ -4,10 +4,15 @@ import thunk from "redux-thunk";
 import promiseMiddleware from "redux-promise-middleware";
 import mainReduser from './redusers/index';
 import {routerMiddleware} from "react-router-redux";
+import AppUtils from "./utils/AppUtils";
 
-const isBrowser = (typeof window !== 'undefined');
+let store;
 
-export default function configureStore(initialState = {}, history) {
+export function getStore(initialState = {}, history) {
+	return store || configureStore(initialState, history);
+}
+
+function configureStore(initialState, history) {
 	const router = routerMiddleware(history);
 	let middlewares = [
 		promiseMiddleware({
@@ -17,19 +22,19 @@ export default function configureStore(initialState = {}, history) {
 		router
 	];
 
-	if (isBrowser) {
+	if (AppUtils.isBrowser) {
 		middlewares.push(createLogger({
 			collapsed: true
 		}));
 	}
-
-	return createStore(
+	store = createStore(
 		mainReduser,
 		initialState,
 		compose(
 			applyMiddleware(...middlewares),
-			isBrowser && window['devToolsExtension'] ? window['devToolsExtension']() : f => f
+			AppUtils.isBrowser && window['devToolsExtension'] ? window['devToolsExtension']() : f => f
 		)
 	);
 
+	return store;
 }

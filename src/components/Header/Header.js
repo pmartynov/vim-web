@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {withWrapper} from "create-react-server/wrapper";
 import './header.css';
 import {createPost} from "../../actions/post";
 import {logout} from "../../actions/login";
@@ -44,4 +43,4 @@ const mapStateToProps = (state) => {
 	}
 };
 
-export default withWrapper(connect(mapStateToProps)(Header));
+export default connect(mapStateToProps)(Header);

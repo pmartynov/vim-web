@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Helmet from "../common/Helmet";
 import './index.css';
-import {withWrapper} from "create-react-server/wrapper";
 import {connect} from "react-redux";
 import {getPosts} from "../../actions/posts";
 import Post from "../Post/Post";
@@ -50,4 +49,4 @@ const mapStateToProps = (state) => {
 	}
 };
 
-export default withWrapper(connect(mapStateToProps)(Index));
+export default connect(mapStateToProps)(Index);

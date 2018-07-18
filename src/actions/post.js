@@ -1,4 +1,4 @@
-import {getStore} from "../app";
+import {getStore} from "../store";
 
 export function changeLike(postId) {
 	const state = getStore().getState();

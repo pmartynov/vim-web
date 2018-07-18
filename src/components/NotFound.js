@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import Helmet from "./common/Helmet";
-import {withWrapper} from "create-react-server/wrapper";
 
 class NotFound extends React.Component {
 
@@ -19,4 +18,4 @@ class NotFound extends React.Component {
 	}
 }
 
-export default withWrapper(NotFound);
+export default NotFound;
