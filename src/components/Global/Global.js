@@ -1,7 +1,7 @@
 import React, {Fragment} from "react";
 import Modal from "../Modal/Modal";
 
-const Global = ({}) => (
+const Global = () => (
 	<Fragment>
 		<Modal/>
 	</Fragment>
