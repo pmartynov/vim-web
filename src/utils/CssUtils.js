@@ -4,8 +4,7 @@ import AppUtils from "./AppUtils";
 class CssUtils {
 
 	static updateGlobalCssProperties() {
-		CssUtils.setProperty('--working-width',
-			Math.floor(AppUtils.getWidth() / Constants.POST_WIDTH) * Constants.POST_WIDTH + 'px')
+		CssUtils.setProperty('--working-width', getWorkingWidth());
 	}
 
 	static getProperty(name) {
@@ -18,6 +17,13 @@ class CssUtils {
 		let root = document.querySelector(':root');
 		root.style.setProperty(name, value)
 	}
+}
+
+function getWorkingWidth() {
+	const workingPadding = parseInt(CssUtils.getProperty('--working-padding')) * 2;
+	let result = Math.floor((AppUtils.getWidth() - workingPadding) / Constants.POST_WIDTH);
+	result = (result || 1) * Constants.POST_WIDTH;
+	return result + 'px';
 }
 
 export default CssUtils;

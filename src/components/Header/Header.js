@@ -19,19 +19,20 @@ class Header extends Component {
 	render() {
 		return (
 			<div className="container_header">
-				<ShowIf show={this.props.authorized}>
-					<div className="logout_header" onClick={this.logout.bind(this)}>
-						<div className="logout-img_header"/>
-					</div>
-					<button className="create_header">
-						<input type="file"
-									 className="input-img_header"
-									 accept="image/*"
-									 onChange={this.imageChanged.bind(this)}/>
-						Upload photo
-					</button>
-				</ShowIf>
-				<div className="logo_header"/>
+				<div className="body_header main_container">
+					<ShowIf show={this.props.authorized}>
+						<div className="logout_header" onClick={this.logout.bind(this)}>
+							<div className="logout-img_header"/>
+						</div>
+						<button className="create_header">
+							<input type="file"
+							       className="input-img_header"
+							       accept="image/*"
+							       onChange={this.imageChanged.bind(this)}/>
+							Upload photo
+						</button>
+					</ShowIf>
+				</div>
 			</div>
 		);
 	}

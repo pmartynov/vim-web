@@ -1,7 +1,8 @@
 :root {
-    --post-width: 300px;
-    --working-width: 1200px;
+    --working-width: 1220px;
+    --working-padding: 10px;
     --header--height: 80px;
+    --post-width: 300px;
 }
 
 @font-face {
@@ -27,11 +28,18 @@
 
 body {
     font: 14px OpenSans-Light;
-    min-width: var(--post-width);
+    min-width: calc(var(--post-width) + var(--working-padding));
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 
 div {
     box-sizing: border-box;
+}
+
+.main_container {
+    margin: auto;
+    width: calc(var(--working-width) + var(--working-padding));
+    padding: 0 10px;
 }

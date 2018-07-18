@@ -1,7 +1,16 @@
 .container_header {
-    height: 80px;
-    width: 100%;
-    padding: 20px 140px;
+    height: var(--header--height);
+    width: 100vw;
+    padding: 20px 0;
+}
+
+.body_header {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: url('/images/logo.svg') no-repeat center;
+    background-size: 48px 20px;
 }
 
 .create_header {
@@ -39,19 +48,4 @@
     left: 0;
     right: 0;
     opacity: 0;
-}
-
-.logo_header {
-    position: absolute;
-    width: 48px;
-    height: 20px;
-    background-image: url('/images/logo.svg');
-    top: 30px;
-    left: calc(50% - 24px);
-}
-
-@media (max-width: 920px) {
-    .container_header {
-        padding: 20px;
-    }
 }
