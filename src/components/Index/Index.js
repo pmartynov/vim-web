@@ -22,9 +22,6 @@ class Index extends Component {
 
 
 	render() {
-		if (this.props.posts.length) {
-			return null;
-		}
 		return (
 			<div className="container_index">
 				<Helmet title='Index'/>
