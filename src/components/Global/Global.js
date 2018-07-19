@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from "react";
-import Modal from "../Modal/Modal";
+import Modal from "../commons/Modal/Modal";
 import {connect} from "react-redux";
 import CssUtils from "../../utils/CssUtils";
 

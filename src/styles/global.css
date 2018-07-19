@@ -6,6 +6,13 @@
 }
 
 @font-face {
+    font-family: OpenSans-Regular;
+    font-style: normal;
+    font-weight: 400;
+    src: local("OpenSans Regular"), local("OpenSans-Regular"), url('/fonts/OpenSans-Regular.woff') format("woff"), url('/fonts/OpenSans-Regular.woff2') format("woff2")
+}
+
+@font-face {
     font-family: OpenSans-Light;
     font-style: normal;
     font-weight: 400;
@@ -13,17 +20,26 @@
 }
 
 @font-face {
-    font-family: OpenSans-Regular;
+    font-family: OpenSans-Italic;
     font-style: normal;
     font-weight: 400;
-    src: local("OpenSans Regular"), local("OpenSans-Regular"), url('/fonts/OpenSans-Regular.ttf') format("ttf")
+    src: local("OpenSans Italic"), local("OpenSans-Italic"), url('/fonts/OpenSans-Italic.woff') format("woff"), url('/fonts/OpenSans-Italic.woff2') format("woff2")
 }
 
 @font-face {
-    font-family: OpenSans-Semibold;
+    font-family: OpenSans-Bold;
     font-style: normal;
     font-weight: 400;
-    src: local("OpenSans Semibold"), local("OpenSans-Semiboldr"), url('/fonts/OpenSans-Semibold.ttf') format("ttf")
+    src: local("OpenSans Bold"), local("OpenSans-Bold"), url('/fonts/OpenSans-Bold.woff') format("woff"),
+    url('/fonts/OpenSans-Bold.woff2') format("woff2")
+}
+
+
+@font-face {
+    font-family: OpenSans-SemiBold;
+    font-style: normal;
+    font-weight: 400;
+    src: local("OpenSans SemiBold"), local("OpenSans-SemiBold"), url('/fonts/OpenSans-SemiBold.woff') format("woff"), url('/fonts/OpenSans-SemiBold.woff2') format("woff2")
 }
 
 body {
@@ -41,4 +57,28 @@ div {
 .main_container {
     margin: auto;
     width: var(--working-width);
+    height: 100%;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-column-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content-row-start {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hide {
+    display: none;
 }

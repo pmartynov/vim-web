@@ -11,18 +11,6 @@ export function login(user, postingKey) {
 	}
 }
 
-export function registration(user) {
-	return dispatch => {
-
-		dispatch({
-			type: 'REGISTRATION_SUCCESS',
-			postingKey: 'QmT3tc4Ju9K7n1fE6smJW32fMz7UHWsgWYjzQDvbEmDbFp',
-			user,
-			userId: 11
-		})
-	}
-}
-
 export function logout() {
 	return dispatch => {
 		dispatch({

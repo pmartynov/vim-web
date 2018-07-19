@@ -4,7 +4,7 @@ import NotFound from "./components/NotFound";
 import Login from "./components/Login/Login";
 import App from "./components/App/App";
 import Index from "./components/Index/Index";
-import PrivateRoute from "./components/PriveteRoute/PrivateRoute";
+import PrivateRoute from "./components/commons/PriveteRoute/PrivateRoute";
 import IndexS from "./serversComponents/IndexS";
 import LoginS from "./serversComponents/LoginS";
 

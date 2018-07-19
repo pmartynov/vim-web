@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import Helmet from "../common/Helmet";
+import Helmet from "../utils/Helmet";
 import {connect} from "react-redux";
 import {getPosts} from "../../actions/posts";
-import Post from "../Post/Post";
+import Post from "../commons/Post/Post";
 import './index.css';
 
 class Index extends Component {

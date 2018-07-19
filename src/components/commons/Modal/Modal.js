@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import ShowIf from "../common/ShowIf";
+import ShowIf from "../../utils/ShowIf";
 import {push} from "react-router-redux";
 import './modal.css';
 

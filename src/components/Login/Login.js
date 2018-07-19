@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import Helmet from "../common/Helmet";
+import Helmet from "../utils/Helmet";
 import {connect} from "react-redux";
 import {push} from "react-router-redux";
-import {login, registration} from "../../actions/login";
-import ShowIf from "../common/ShowIf";
+import {login} from "../../actions/login";
 import './login.css';
+import GrayInput from "../commons/GrayInput/GrayInput";
+import ShowIf from "../utils/ShowIf";
 
 class Login extends Component {
 
@@ -19,28 +20,22 @@ class Login extends Component {
 		this.props.dispatch(push('/index'));
 	}
 
-	registration() {
-		this.props.dispatch(registration(this.name.value));
-	}
-
 	render() {
 		return (
-			<div className="container_login">
+			<div className="container_login content-center">
 				<Helmet title='Login'/>
 				<ShowIf show={true}>
-					<div className="error_login">
+					<div className="error_login content-center">
 						Incorrect login
 					</div>
 				</ShowIf>
-				<div className="form_login">
-					<div className="title_login">
+				<div className="form_login content-column-start">
+					<div className="title_login content-column-start">
 						WELCOME TO VIM
 					</div>
-					<input type="text" ref={ref => this.name = ref}/>
-					<input type="password" ref={ref => this.password = ref}/>
-					<button onClick={this.login.bind(this)}>Login</button>
-					<div className="delimiter"/>
-					<button onClick={this.registration.bind(this)}>Registration</button>
+					<GrayInput className="input_login" type="text" ref={ref => this.name = ref} placeholder="Login"/>
+					<GrayInput className="input_login" type="password" ref={ref => this.password = ref} placeholder="Posting Key"/>
+					<div className="submit_login content-center" onClick={this.login.bind(this)}>Login</div>
 				</div>
 				<div className="background_login"/>
 			</div>

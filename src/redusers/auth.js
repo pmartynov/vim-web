@@ -7,7 +7,6 @@ const initialState = {
 export default function auth(state = initialState, action) {
 	switch (action.type) {
 		case 'LOGIN_SUCCESS':
-		case 'REGISTRATION_SUCCESS':
 			return {
 				...state,
 				user: action.user,

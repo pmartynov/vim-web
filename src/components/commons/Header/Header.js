@@ -1,16 +1,10 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {logout} from "../../../actions/login";
+import ShowIf from "../../utils/ShowIf";
 import './header.css';
-import {createPost} from "../../actions/post";
-import {logout} from "../../actions/login";
-import ShowIf from "../common/ShowIf";
 
 class Header extends Component {
-
-	imageChanged(event) {
-		event.preventDefault();
-		this.props.dispatch(createPost(event.target.files[0]));
-	}
 
 	logout() {
 		this.props.dispatch(logout())
@@ -25,10 +19,6 @@ class Header extends Component {
 							<div className="logout-img_header"/>
 						</div>
 						<button className="create_header">
-							<input type="file"
-							       className="input-img_header"
-							       accept="image/*"
-							       onChange={this.imageChanged.bind(this)}/>
 							Upload photo
 						</button>
 					</ShowIf>
