@@ -1,19 +1,18 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import Helmet from "../common/Helmet";
-import './index.css';
 import {connect} from "react-redux";
 import {getPosts} from "../../actions/posts";
 import Post from "../Post/Post";
+import './index.css';
 
 class Index extends Component {
 
 	constructor(props) {
 		super(props);
 		props.dispatch(getPosts());
-		this.getPostsComponents.bind(this);
 	}
 
-	getPostsComponents() {
+	getPosts() {
 		const posts = [];
 		for (let post in this.props.posts) {
 			posts.push(<Post postId={post} key={post}/>)
@@ -27,12 +26,10 @@ class Index extends Component {
 			return null;
 		}
 		return (
-			<Fragment>
+			<div className="container_index">
 				<Helmet title='Index'/>
-				<div className="container_index">
-					{this.getPostsComponents()}
-				</div>
-			</Fragment>
+				{this.getPosts()}
+			</div>
 		);
 	}
 }

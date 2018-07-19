@@ -6,6 +6,7 @@
 
 .body_header {
     height: 100%;
+    padding: 0 10px;
     display: flex;
     justify-content: flex-end;
     align-items: center;

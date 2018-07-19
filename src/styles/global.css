@@ -28,7 +28,7 @@
 
 body {
     font: 14px OpenSans-Light;
-    min-width: calc(var(--post-width) + var(--working-padding));
+    min-width: var(--post-width);
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -40,6 +40,5 @@ div {
 
 .main_container {
     margin: auto;
-    width: calc(var(--working-width) + var(--working-padding));
-    padding: 0 10px;
+    width: var(--working-width);
 }

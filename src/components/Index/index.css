@@ -1,20 +1,7 @@
 .container_index {
-    padding-bottom: 20px;
+    padding: 20px 0;
     display: flex;
     flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: space-around;
-}
-
-.scroll-container_index {
-    overflow-y: scroll;
-    height: 100%;
-    margin-right: -15px;
-    margin-bottom: -15px;
-}
-
-@media (max-width: 920px) {
-    .container_index {
-        padding: 20px;
-    }
+    justify-content: flex-start;
+    align-items: center;
 }
