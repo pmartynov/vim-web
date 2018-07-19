@@ -16,8 +16,8 @@ class Scroll extends React.Component {
 	}
 
 	onScrollFrame(values) {
-		const {deltaForFetch} = this.props;
-		if (values.scrollHeight - values.scrollTop < deltaForFetch) {
+		const {deltaForFetch, active} = this.props;
+		if (active && (values.scrollHeight - values.scrollTop < deltaForFetch)) {
 			this.props.shouldFetchFunc();
 		}
 	}
@@ -35,7 +35,6 @@ class Scroll extends React.Component {
 	}
 
 	render() {
-		const {children} = this.props;
 		return (
 			<Scrollbars
 				renderTrackVertical={this.renderTrackVertical}
@@ -43,7 +42,7 @@ class Scroll extends React.Component {
 				onScrollFrame={this.onScrollFrame}
 			>
 				<div className={this.props.className}>
-					{children}
+					{this.props.children}
 					<ReactResizeDetector handleHeight onResize={this.update}/>
 				</div>
 			</Scrollbars>
@@ -55,8 +54,12 @@ Scroll.defaultProps = {
 	deltaForFetch: 0
 };
 
-const mapStateToProps = () => {
-	return {}
+const mapStateToProps = (state, props) => {
+	const scrollState = state.scroll[props.point] || {};
+	const {active} = scrollState;
+	return {
+		active
+	}
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

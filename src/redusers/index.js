@@ -5,6 +5,7 @@ import posts from "./posts";
 import post from "./post";
 import modal from "./modal";
 import metaTags from "./metaTags";
+import scroll from "./scroll";
 
 export default combineReducers({
 	auth,
@@ -12,5 +13,6 @@ export default combineReducers({
 	post,
 	modal,
 	router: routerReducer,
-	metaTags
+	metaTags,
+	scroll
 });
