@@ -51,7 +51,7 @@ class Scroll extends React.Component {
 }
 
 Scroll.defaultProps = {
-	deltaForFetch: 0
+	deltaForFetch: 400
 };
 
 const mapStateToProps = (state, props) => {

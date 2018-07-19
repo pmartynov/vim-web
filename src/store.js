@@ -5,6 +5,8 @@ import promiseMiddleware from "redux-promise-middleware";
 import mainReduser from './redusers/index';
 import {routerMiddleware} from "react-router-redux";
 import AppUtils from "./utils/AppUtils";
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from "./sagas/rootSaga";
 
 let store;
 
@@ -14,11 +16,14 @@ export function getStore(initialState = {}, history) {
 
 function configureStore(initialState, history) {
 	const router = routerMiddleware(history);
+	const sagaMiddleware = createSagaMiddleware();
+
 	let middlewares = [
 		promiseMiddleware({
 			promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']
 		}),
 		thunk,
+		sagaMiddleware,
 		router
 	];
 
@@ -36,5 +41,6 @@ function configureStore(initialState, history) {
 		)
 	);
 
+	sagaMiddleware.run(rootSaga);
 	return store;
 }
