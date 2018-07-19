@@ -62,18 +62,18 @@ const mapStateToProps = (state, props) => {
 	}
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch, props) => {
 	return {
 		initScroll: () => {
 			dispatch({
 				type: 'INIT_SCROLL',
-				point: ownProps.point
+				point: props.point
 			})
 		},
 		shouldFetchFunc: () => {
 			dispatch({
 				type: 'SHOULD_FETCH',
-				point: ownProps
+				point: props
 			})
 		}
 	};

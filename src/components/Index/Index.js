@@ -1,15 +1,16 @@
 import React, {Component} from "react";
 import Helmet from "../utils/Helmet";
 import {connect} from "react-redux";
-import {getPosts} from "../../actions/posts";
 import Post from "../commons/Post/Post";
+import Constants from "../../utils/Constants";
+import Actions from "../../utils/Actions";
 import './index.css';
 
 class Index extends Component {
 
 	constructor(props) {
 		super(props);
-		props.dispatch(getPosts());
+		props.addScrollListener();
 	}
 
 	getPosts() {
@@ -37,4 +38,15 @@ const mapStateToProps = (state) => {
 	}
 };
 
-export default connect(mapStateToProps)(Index);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addScrollListener: () => {
+			dispatch({
+				type: Actions.ADD_SCROLL_LISTENER,
+				point: Constants.SCROLL_POINTS.BODY
+			})
+		}
+	}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
