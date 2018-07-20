@@ -26,22 +26,6 @@
     overflow: hidden;
 }
 
-.logout_header {
-    margin-left: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: #fafafa;
-    float: right;
-}
-
-.logout-img_header {
-    margin: 13px 15px;
-    width: 14px;
-    height: 14px;
-    background-image: url("/images/logout.svg");
-}
-
 .input-img_header {
     position: absolute;
     top: 0;

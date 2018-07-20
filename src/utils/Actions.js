@@ -12,11 +12,6 @@ const Actions = {
 	AUTH: {
 		LOGIN: 'LOGIN',
 		LOGOUT: 'LOGOUT'
-	},
-	IMAGE: {
-		REQUEST: 'IMAGE_REQUEST',
-		SUCCESS: 'IMAGE_SUCCESS',
-		ERROR: 'IMAGE_ERROR'
 	}
 };
 

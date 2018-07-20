@@ -11,10 +11,8 @@ const App = ({children}) => (
 		<Global/>
 		<Header/>
 		<div className="container_app">
-			<Scroll point={Constants.SCROLL_POINTS.BODY}>
-				<div className="main_container">
-					{children}
-				</div>
+			<Scroll point={Constants.SCROLL_POINTS.BODY} className="main_container">
+				{children}
 			</Scroll>
 		</div>
 	</Fragment>

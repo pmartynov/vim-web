@@ -12,7 +12,7 @@ export function login(user, postingKey) {
 	}
 }
 
-export function logout() {
+export function logoutAction() {
 	return dispatch => {
 		dispatch({
 			type: Actions.AUTH.LOGOUT

@@ -14,7 +14,7 @@ export function getRoutes() {
 			<Switch>
 				<Route exact path="/" render={() => <Redirect to="/index"/>}/>
 				<Route path="/login" component={Login}/>
-				<PrivateRoute path="/index" component={Index}/>
+				<Route path="/index" component={Index}/>
 				<Route path="*" component={NotFound}/>
 			</Switch>
 		</App>

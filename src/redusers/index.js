@@ -5,7 +5,6 @@ import metaTags from "./metaTags";
 import scroll from "./scroll";
 import postsList from "./postsList";
 import posts from "./posts";
-import image from "./image";
 
 export default combineReducers({
 	auth,
@@ -13,6 +12,5 @@ export default combineReducers({
 	metaTags,
 	scroll,
 	postsList,
-	posts,
-	image
+	posts
 });

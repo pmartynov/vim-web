@@ -1,0 +1,15 @@
+.logout_container {
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    float: right;
+}
+
+.logout-img {
+    margin: 13px 15px;
+    width: 14px;
+    height: 14px;
+    background-image: url("/images/logout.svg");
+}

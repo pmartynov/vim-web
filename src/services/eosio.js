@@ -7,6 +7,5 @@ export async function getInfo() {
 		method: 'GET',
 		mode: 'no-cors'
 	});
-	console.log(response);
 	return response.json();
 }

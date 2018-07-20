@@ -15,8 +15,8 @@ class Scroll extends React.Component {
 		props.initScroll();
 	}
 
-	shouldComponentUpdate() {
-		return false;
+	shouldComponentUpdate(nextProps) {
+		return nextProps.location !== this.props.location;
 	}
 
 	onScrollFrame(values) {
@@ -65,11 +65,13 @@ const mapStateToProps = (state, props) => {
 	return {
 		active,
 		request,
-		deltaForFetch
+		deltaForFetch,
+		location: state.router.location
 	}
 };
 
 const mapDispatchToProps = (dispatch, props) => {
+
 	return {
 		initScroll: () => {
 			dispatch({
