@@ -1,12 +1,11 @@
 import React, {Component, Fragment} from "react";
-import Modal from "../commons/Modal/Modal";
 import {connect} from "react-redux";
 import CssUtils from "../../utils/CssUtils";
 
 class Global extends Component {
 
-	constructor(props) {
-		super(props);
+	constructor() {
+		super();
 		this.resize = this.resize.bind(this);
 		CssUtils.updateGlobalCssProperties();
 	}
@@ -26,7 +25,6 @@ class Global extends Component {
 	render() {
 		return (
 			<Fragment>
-				<Modal/>
 			</Fragment>
 		);
 	}

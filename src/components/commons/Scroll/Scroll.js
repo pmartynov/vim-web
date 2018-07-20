@@ -29,7 +29,8 @@ class Scroll extends React.Component {
 	}
 
 	renderTrackVertical() {
-		return <div className={'default_scroll ' + (this.props.customScrollStyle || '')}/>
+		const {scrollStyle} = this.props;
+		return <div className={'default_scroll ' + (scrollStyle || '')}/>
 	}
 
 	static hideHorizontalThumb() {

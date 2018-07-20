@@ -1,9 +1,10 @@
 import {push} from "react-router-redux";
+import Actions from "../utils/Actions";
 
 export function login(user, postingKey) {
 	return dispatch => {
 		dispatch({
-			type: "LOGIN_SUCCESS",
+			type: Actions.AUTH.LOGIN,
 			user,
 			postingKey,
 			userId: 1
@@ -14,7 +15,7 @@ export function login(user, postingKey) {
 export function logout() {
 	return dispatch => {
 		dispatch({
-			type: "LOGOUT"
+			type: Actions.AUTH.LOGOUT
 		});
 		dispatch(push('/login'));
 	}

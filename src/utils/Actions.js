@@ -1,5 +1,4 @@
 const Actions = {
-	ADD_SCROLL_LISTENER: 'ADD_SCROLL_LISTENER',
 	SCROLL: {
 		INIT: 'SCROLL_INIT'
 	},
@@ -7,6 +6,10 @@ const Actions = {
 		REQUEST: 'POSTS_REQUEST',
 		SUCCESS: 'POSTS_SUCCESS',
 		ERROR: 'POSTS_ERROR'
+	},
+	AUTH: {
+		LOGIN: 'LOGIN',
+		LOGOUT: 'LOGOUT'
 	}
 };
 

@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import './post.css';
 
-
 class Post extends Component {
 
 	render() {

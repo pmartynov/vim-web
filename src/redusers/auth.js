@@ -1,3 +1,5 @@
+import Actions from "../utils/Actions";
+
 const initialState = {
 	user: '',
 	postingKey: '',
@@ -6,14 +8,14 @@ const initialState = {
 
 export default function auth(state = initialState, action) {
 	switch (action.type) {
-		case 'LOGIN_SUCCESS':
+		case Actions.AUTH.LOGIN:
 			return {
 				...state,
 				user: action.user,
 				postingKey: action.postingKey,
 				userId: action.userId
 			};
-		case 'LOGOUT':
+		case Actions.AUTH.LOGOUT:
 			return {
 				...state,
 				user: '',
