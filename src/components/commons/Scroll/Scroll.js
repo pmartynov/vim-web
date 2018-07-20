@@ -18,8 +18,9 @@ class Scroll extends React.Component {
 	}
 
 	onScrollFrame(values) {
-		const {deltaForFetch, active} = this.props;
-		if (active && (values.scrollHeight - values.scrollTop < deltaForFetch)) {
+		const {deltaForFetch, active, hasMore} = this.props;
+		console.log(hasMore);
+		if (active && hasMore && (values.scrollHeight - values.scrollTop < deltaForFetch)) {
 			this.props.shouldFetchFunc();
 		}
 	}

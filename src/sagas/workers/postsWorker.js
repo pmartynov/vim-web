@@ -15,5 +15,5 @@ export function* postsWorker() {
 	posts.forEach(post => {
 		postsObj[post.url] = post;
 	});
-	yield put({type: Actions.POSTS.SUCCESS, hasMore: true, offset: response.offset, posts: postsObj, postsIds});
+	yield put({type: Actions.POSTS.SUCCESS, hasMore: response.offset !== postsList.offset, offset: response.offset, posts: postsObj, postsIds});
 }

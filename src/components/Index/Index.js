@@ -5,8 +5,8 @@ import Post from "../commons/Post/Post";
 import Constants from "../../utils/Constants";
 import Actions from "../../utils/Actions";
 import Scroll from "../commons/Scroll/Scroll";
+import {getPostsList} from "../../selectors/selectors";
 import './index.css';
-import {getPostsList, getPostsListWithPosts} from "../../selectors/selectors";
 
 class Index extends Component {
 
@@ -25,6 +25,7 @@ class Index extends Component {
 			        request={Actions.POSTS.REQUEST}
 			        success={Actions.POSTS.SUCCESS}
 			        error={Actions.POSTS.ERROR}
+			        hasMore={this.props.hasMore}
 			>
 				<div className="container_index">
 					<Helmet title='Index'/>
@@ -39,7 +40,8 @@ const mapStateToProps = (state) => {
 	const postsList = getPostsList(state);
 	return {
 		postsList,
-		postsIds: postsList.postsIds
+		postsIds: postsList.postsIds,
+		hasMore: postsList.hasMore
 	}
 };
 
