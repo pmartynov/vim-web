@@ -7,6 +7,9 @@ export function* postsWorker() {
 	const postsList = yield select(getPostsList);
 	const response = yield call(() => SteepshotApi.getTopPosts(postsList.offset, postsList.limit));
 	const posts = response.results;
+	if (postsList.offset) {
+		posts.splice(0, 1);
+	}
 	const postsIds = posts.map(post => post.url);
 	const postsObj = {};
 	posts.forEach(post => {

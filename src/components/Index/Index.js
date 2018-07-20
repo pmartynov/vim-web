@@ -6,13 +6,14 @@ import Constants from "../../utils/Constants";
 import Actions from "../../utils/Actions";
 import Scroll from "../commons/Scroll/Scroll";
 import './index.css';
+import {getPostsList, getPostsListWithPosts} from "../../selectors/selectors";
 
 class Index extends Component {
 
 	getPosts() {
 		const posts = [];
-		for (let post in this.props.posts) {
-			posts.push(<Post postId={post} key={post}/>)
+		for (let id of this.props.postsIds) {
+			posts.push(<Post postId={id} key={id}/>)
 		}
 		return posts;
 	}
@@ -35,8 +36,10 @@ class Index extends Component {
 }
 
 const mapStateToProps = (state) => {
+	const postsList = getPostsList(state);
 	return {
-		posts: state.posts
+		postsList,
+		postsIds: postsList.postsIds
 	}
 };
 

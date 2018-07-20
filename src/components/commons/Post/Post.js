@@ -5,7 +5,7 @@ import './post.css';
 class Post extends Component {
 
 	render() {
-		const background = {backgroundImage: `url(${this.props.url})`};
+		const background = {backgroundImage: `url(${this.props.imgUrl})`};
 		return (
 			<div className="container_post" style={background} />
 		);
@@ -13,9 +13,9 @@ class Post extends Component {
 }
 
 const mapStateToProps = (state, props) => {
-	const {url} = state.posts[props.postId];
+	const post = state.posts[props.postId];
 	return {
-		url
+		imgUrl: post.media[0]['thumbnails']['256']
 	}
 };
 

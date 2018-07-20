@@ -12,7 +12,7 @@ export default function postsList(state = initialState, action) {
 		case Actions.POSTS.SUCCESS:
 			return {
 				...state,
-				postsIds: [...state.postsIds, action.postsIds],
+				postsIds: [...state.postsIds, ...action.postsIds],
 				hasMore: action.hasMore,
 				offset: action.offset
 			};
