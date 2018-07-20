@@ -12,16 +12,17 @@ class Scroll extends React.Component {
 		this.onScrollFrame = this.onScrollFrame.bind(this);
 		this.renderTrackVertical = this.renderTrackVertical.bind(this);
 		this.update = this.update.bind(this);
-		Scroll.hideHorizontalThumb = Scroll.hideHorizontalThumb.bind(this);
 		props.initScroll();
-		props.shouldFetchFunc();
+	}
+
+	shouldComponentUpdate() {
+		return false;
 	}
 
 	onScrollFrame(values) {
-		const {deltaForFetch, active, hasMore} = this.props;
-		console.log(hasMore);
-		if (active && hasMore && (values.scrollHeight - values.scrollTop < deltaForFetch)) {
-			this.props.shouldFetchFunc();
+		const {deltaForFetch, active} = this.props;
+		if (active && (values.scrollHeight - values.scrollTop < deltaForFetch)) {
+			this.props.shouldFetchFunc(this.props.request);
 		}
 	}
 
@@ -60,9 +61,11 @@ Scroll.defaultProps = {
 
 const mapStateToProps = (state, props) => {
 	const scrollState = state.scroll[props.point] || {};
-	const {active} = scrollState;
+	const {active, request, deltaForFetch} = scrollState;
 	return {
-		active
+		active,
+		request,
+		deltaForFetch
 	}
 };
 
@@ -71,18 +74,15 @@ const mapDispatchToProps = (dispatch, props) => {
 		initScroll: () => {
 			dispatch({
 				type: Actions.SCROLL.INIT,
-				point: props.point,
-				request: props.request,
-				success: props.success,
-				error: props.error
+				point: props.point
 			})
 		},
-		shouldFetchFunc: () => {
+		shouldFetchFunc: (request) => {
 			dispatch({
-				type: props.request
+				type: request
 			})
 		}
-	};
+	}
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Scroll);

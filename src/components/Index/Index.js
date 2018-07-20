@@ -4,11 +4,20 @@ import {connect} from "react-redux";
 import Post from "../commons/Post/Post";
 import Constants from "../../utils/Constants";
 import Actions from "../../utils/Actions";
-import Scroll from "../commons/Scroll/Scroll";
 import {getPostsList} from "../../selectors/selectors";
 import './index.css';
 
 class Index extends Component {
+
+	constructor(props) {
+		super(props);
+		props.addScrollListener();
+	}
+
+	componentWillUnmount() {
+		this.props.removeScrollListener();
+	}
+
 
 	getPosts() {
 		const posts = [];
@@ -20,18 +29,10 @@ class Index extends Component {
 
 	render() {
 		return (
-			<Scroll point={Constants.SCROLL_POINTS.BODY}
-			        deltaForFetch={1000}
-			        request={Actions.POSTS.REQUEST}
-			        success={Actions.POSTS.SUCCESS}
-			        error={Actions.POSTS.ERROR}
-			        hasMore={this.props.hasMore}
-			>
 				<div className="container_index">
 					<Helmet title='Index'/>
 					{this.getPosts()}
 				</div>
-			</Scroll>
 		);
 	}
 }
@@ -45,9 +46,24 @@ const mapStateToProps = (state) => {
 	}
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch) => {
 	return {
-
+		addScrollListener: () => {
+			dispatch({
+				type: Actions.SCROLL.ADD_LISTENER,
+				point: Constants.SCROLL_POINTS.BODY,
+				request: Actions.POSTS.REQUEST,
+				success: Actions.POSTS.SUCCESS,
+				error: Actions.POSTS.ERROR,
+				deltaForFetch: 1000
+			})
+		},
+		removeScrollListener: () => {
+			dispatch({
+				type: Actions.SCROLL.REMOVE_LISTENER,
+				point: Constants.SCROLL_POINTS.BODY,
+			})
+		},
 	}
 };
 
