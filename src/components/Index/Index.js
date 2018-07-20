@@ -5,6 +5,7 @@ import Post from "../commons/Post/Post";
 import Constants from "../../utils/Constants";
 import Actions from "../../utils/Actions";
 import './index.css';
+import Scroll from "../commons/Scroll/Scroll";
 
 class Index extends Component {
 
@@ -24,10 +25,17 @@ class Index extends Component {
 
 	render() {
 		return (
-			<div className="container_index">
-				<Helmet title='Index'/>
-				{this.getPosts()}
-			</div>
+			<Scroll point={Constants.SCROLL_POINTS.BODY}
+			        deltaForFetch={1000}
+			        request={Actions.POSTS.REQUEST}
+			        success={Actions.POSTS.SUCCESS}
+			        error={Actions.POSTS.ERROR}
+			>
+				<div className="container_index">
+					<Helmet title='Index'/>
+					{this.getPosts()}
+				</div>
+			</Scroll>
 		);
 	}
 }

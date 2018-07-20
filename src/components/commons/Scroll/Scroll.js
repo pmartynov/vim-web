@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Scrollbars} from 'react-custom-scrollbars';
 import ReactResizeDetector from 'react-resize-detector';
+import Actions from "../../../utils/Actions";
 import './scroll.css';
 
 class Scroll extends React.Component {
@@ -13,6 +14,7 @@ class Scroll extends React.Component {
 		this.update = this.update.bind(this);
 		Scroll.hideHorizontalThumb = Scroll.hideHorizontalThumb.bind(this);
 		props.initScroll();
+		props.shouldFetchFunc();
 	}
 
 	onScrollFrame(values) {
@@ -35,6 +37,7 @@ class Scroll extends React.Component {
 	}
 
 	render() {
+		console.log('update scroll');
 		return (
 			<Scrollbars
 				renderTrackVertical={this.renderTrackVertical}
@@ -66,14 +69,16 @@ const mapDispatchToProps = (dispatch, props) => {
 	return {
 		initScroll: () => {
 			dispatch({
-				type: 'INIT_SCROLL',
-				point: props.point
+				type: Actions.SCROLL.INIT,
+				point: props.point,
+				request: props.request,
+				success: props.success,
+				error: props.error
 			})
 		},
 		shouldFetchFunc: () => {
 			dispatch({
-				type: 'SHOULD_FETCH',
-				point: props
+				type: props.request
 			})
 		}
 	};
