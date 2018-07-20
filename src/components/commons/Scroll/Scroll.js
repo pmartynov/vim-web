@@ -38,7 +38,6 @@ class Scroll extends React.Component {
 	}
 
 	render() {
-		console.log('update scroll');
 		return (
 			<Scrollbars
 				renderTrackVertical={this.renderTrackVertical}
