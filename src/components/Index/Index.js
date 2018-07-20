@@ -4,15 +4,10 @@ import {connect} from "react-redux";
 import Post from "../commons/Post/Post";
 import Constants from "../../utils/Constants";
 import Actions from "../../utils/Actions";
-import './index.css';
 import Scroll from "../commons/Scroll/Scroll";
+import './index.css';
 
 class Index extends Component {
-
-	constructor(props) {
-		super(props);
-		props.addScrollListener();
-	}
 
 	getPosts() {
 		const posts = [];
@@ -21,7 +16,6 @@ class Index extends Component {
 		}
 		return posts;
 	}
-
 
 	render() {
 		return (
@@ -46,14 +40,9 @@ const mapStateToProps = (state) => {
 	}
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = () => {
 	return {
-		addScrollListener: () => {
-			dispatch({
-				type: Actions.ADD_SCROLL_LISTENER,
-				point: Constants.SCROLL_POINTS.BODY
-			})
-		}
+
 	}
 };
 
