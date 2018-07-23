@@ -15,16 +15,14 @@ class SinglePost extends Component{
 	}
 
 	render() {
-		const {url, body} = this.props;
-		console.log(url);
-		console.log(body);
+		const {url, body, author, description, tags} = this.props;
 		if (!url) {
 			return null;
 		}
 		return (
 			<div className="container_single">
 				<ContainImg src={body}/>
-				<PostInfo/>
+				<PostInfo author={author} description={description} tags={tags}/>
 			</div>
 		)
 	}
