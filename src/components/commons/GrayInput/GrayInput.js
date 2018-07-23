@@ -1,8 +1,8 @@
 import React from 'react';
-import './grayInput.css';
 import ShowIf from "../../utils/ShowIf";
+import './grayInput.css';
 
-class GrayInput extends React.PureComponent {
+class GrayInput extends React.Component {
 
 	get value() {
 		return this.field.value;

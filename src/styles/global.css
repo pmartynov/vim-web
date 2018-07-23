@@ -3,6 +3,7 @@
     --working-padding: 10px;
     --header--height: 80px;
     --post-width: 300px;
+    --single-post-min-height: 300px;
 }
 
 @font-face {

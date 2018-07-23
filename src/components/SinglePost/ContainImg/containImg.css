@@ -1,6 +1,6 @@
 .container_contain-img {
     min-width: 290px;
-    min-height: 100px;
+    min-height: var(--single-post-min-height);
     flex-grow: 1;
     align-self: stretch;
     margin: 20px 10px 20px 0;

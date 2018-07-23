@@ -15,23 +15,24 @@ class SinglePost extends Component{
 	}
 
 	render() {
-		const {url, body, author, description, tags} = this.props;
+		const {url, body, author, description, tags, image_size} = this.props;
 		if (!url) {
 			return null;
 		}
 		return (
 			<div className="container_single">
 				<ContainImg src={body}/>
-				<PostInfo author={author} description={description} tags={tags}/>
+				<PostInfo author={author} description={description} tags={tags} size={image_size}/>
 			</div>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
-	const {author, description, tags, body, url} = getSinglePost(state);
+	console.log(getSinglePost(state));
+	const {author, description, tags, body, url, image_size} = getSinglePost(state);
 	return {
-		author, description, tags, body, url
+		author, description, tags, body, url, image_size
 	}
 };
 
