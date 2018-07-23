@@ -6,6 +6,7 @@ import {login} from "../../actions/login";
 import './login.css';
 import GrayInput from "../commons/GrayInput/GrayInput";
 import ShowIf from "../utils/ShowIf";
+import Btn from "../commons/buttons/Btn/btn";
 
 class Login extends Component {
 
@@ -35,7 +36,7 @@ class Login extends Component {
 					</div>
 					<GrayInput className="input_login" type="text" ref={ref => this.name = ref} placeholder="Login"/>
 					<GrayInput className="input_login" type="password" ref={ref => this.password = ref} placeholder="Posting Key"/>
-					<div className="submit_login content-center" onClick={this.login.bind(this)}>Login</div>
+					<Btn className="blue-btn submit_login" onClick={this.login.bind(this)} value="Login" />
 				</div>
 				<div className="background_login"/>
 			</div>

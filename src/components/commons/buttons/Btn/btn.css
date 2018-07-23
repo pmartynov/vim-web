@@ -1,7 +1,6 @@
 .btn {
     padding: 10px 20px;
     border-radius: 10px;
-    border: 0;
     line-height: 20px;
     font: 14px OpenSans-Semibold;
     cursor: pointer;
@@ -10,4 +9,14 @@
 .blue-btn {
     background-color: #0029ff;
     color: #ffffff;
+    border: 0;
+}
+
+.blue-btn:hover {
+    color: #777777;
+}
+
+.white-btn {
+    background-color: #ffffff;
+    border: solid 1px #f5f5f5;
 }

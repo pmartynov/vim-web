@@ -9,9 +9,9 @@ class Header extends Component {
 			<div className="container_header">
 				<div className="body_header main_container">
 					<LoginBtn/>
-					<button className="create_header">
+					<div className="btn white-btn">
 						Upload photo
-					</button>
+					</div>
 				</div>
 			</div>
 		);

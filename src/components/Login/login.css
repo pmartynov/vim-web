@@ -50,13 +50,7 @@
 
 .submit_login {
     width: 100%;
-    height: 50px;
     margin-top: 30px;
-    border-radius: 10px;
-    background-color: #0029ff;
-    font: 14px OpenSans-Semibold;
-    color: white;
-    cursor: pointer;
 }
 
 .input_login {
