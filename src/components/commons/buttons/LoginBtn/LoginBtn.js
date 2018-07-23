@@ -1,6 +1,6 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import {connect} from "react-redux";
-import ActionBtn from "../ActionBtn/ActionBtn";
+import Btn from "../Btn/btn";
 import ShowIf from "../../../utils/ShowIf";
 import {push} from "react-router-redux";
 import {logoutAction} from "../../../../actions/login";
@@ -10,16 +10,16 @@ class LoginBtn extends Component {
 
 	render() {
 		return (
-			<Fragment>
+			<div className="container_login-btn">
 				<ShowIf show={this.props.authorized}>
 					<div className="logout_container" onClick={this.props.logout}>
 						<div className="logout-img"/>
 					</div>
 				</ShowIf>
 				<ShowIf show={!this.props.authorized && (this.props.location !== '/login')}>
-					<ActionBtn value="Login" onClick={this.props.login}/>
+					<Btn className="blue-btn" value="Login" onClick={this.props.login}/>
 				</ShowIf>
-			</Fragment>
+			</div>
 		);
 	}
 }

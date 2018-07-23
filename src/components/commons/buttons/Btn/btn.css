@@ -1,0 +1,13 @@
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 0;
+    line-height: 20px;
+    font: 14px OpenSans-Semibold;
+    cursor: pointer;
+}
+
+.blue-btn {
+    background-color: #0029ff;
+    color: #ffffff;
+}
