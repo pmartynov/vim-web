@@ -8,7 +8,6 @@ export function* postWatcher() {
 
 function* postWorker(params) {
 	const response = yield call(() => SteepshotApi.getPostInfo(params.url));
-	console.log(response);
 	const postsIds = [response.url];
 	const postsObj = {
 		[response.url]: response

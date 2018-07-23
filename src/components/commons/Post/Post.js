@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import CoverImg from "../CoverImg/CoverImg";
+import CoverImg from "./CoverImg/CoverImg";
 import {push} from "react-router-redux";
 import './post.css';
 import PostUtils from "../../../utils/PostUtils";

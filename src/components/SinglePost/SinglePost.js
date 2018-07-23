@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getSinglePost} from "../../selectors/selectors";
 import Actions from "../../utils/Actions";
+import ContainImg from "./ContainImg/ContainImg";
+import PostInfo from "./PostInfo/PostInfo";
+import './singlePost.css';
 
 class SinglePost extends Component{
 	constructor(props) {
@@ -12,13 +15,16 @@ class SinglePost extends Component{
 	}
 
 	render() {
-		const {author, description, tags, body, url} = this.props;
+		const {url, body} = this.props;
+		console.log(url);
+		console.log(body);
 		if (!url) {
 			return null;
 		}
 		return (
 			<div className="container_single">
-				test
+				<ContainImg src={body}/>
+				<PostInfo/>
 			</div>
 		)
 	}
