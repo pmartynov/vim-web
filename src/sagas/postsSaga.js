@@ -1,9 +1,13 @@
-import {call, select, put} from 'redux-saga/effects';
-import Actions from "../../utils/Actions";
-import {getPostsList} from "../../selectors/selectors";
-import SteepshotApi from "../../services/SteepshotApi";
+import {call, select, put, takeEvery} from 'redux-saga/effects';
+import Actions from "../utils/Actions";
+import {getPostsList} from "../selectors/selectors";
+import SteepshotApi from "../services/SteepshotApi";
 
-export function* postsWorker() {
+export function* postsWatcher() {
+	yield takeEvery(Actions.POSTS.REQUEST, postsWorker)
+}
+
+function* postsWorker() {
 	const postsList = yield select(getPostsList);
 	const response = yield call(() => SteepshotApi.getTopPosts(postsList.offset, postsList.limit));
 	const posts = response.results;

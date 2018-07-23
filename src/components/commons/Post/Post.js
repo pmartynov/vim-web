@@ -1,13 +1,26 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import CoverImg from "../CoverImg/CoverImg";
+import {push} from "react-router-redux";
 import './post.css';
+import PostUtils from "../../../utils/PostUtils";
 
 class Post extends Component {
 
+	constructor() {
+		super();
+		this.openPost = this.openPost.bind(this);
+	}
+
+	openPost() {
+		const {postId} = this.props;
+		const postUrl = '/post/' + PostUtils.getUsernameFromUrl(postId) + '/' + PostUtils.getPermlinkFromUrl(postId);
+		this.props.dispatch(push(postUrl));
+	}
+
 	render() {
 		return (
-			<div className="container_post">
+			<div className="container_post" onClick={this.openPost}>
 				<CoverImg src={this.props.imgUrl}/>
 			</div>
 		);

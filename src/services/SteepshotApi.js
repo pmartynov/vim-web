@@ -13,6 +13,15 @@ class SteepshotApi {
 		};
 		return RequestService.get(url, options);
 	}
+
+	static getPostInfo(url) {
+		url = `${Constants.STEEPSHOT.URL.BASE}/post/${url}/info`;
+		const options = {
+			show_nsfw: true,
+			show_low_rated: true
+		};
+		return RequestService.get(url, options);
+	}
 }
 
 export default SteepshotApi;

@@ -11,6 +11,11 @@ export default function posts(state = initialState, action) {
 				...state,
 				...action.posts
 			};
+		case Actions.POST.SUCCESS:
+			return {
+				...state,
+				...action.posts
+			};
 		default:
 			return state;
 	}
