@@ -11,16 +11,22 @@ class RequestService {
 
 	static post(url, data) {
 		const options = {
-			method: 'POST'
+			method: 'POST',
+			mode: "cors"
 		};
+
 		if (data instanceof FormData) {
 			options.body = data;
 		} else {
-			options.headers = {'Content-Type': 'application/json'};
+			options.headers = {
+				'Content-Type': 'application/json'
+			};
 			options.body = JSON.stringify(data);
 		}
+
 		return fetch(url, options)
 			.then(RequestService.processResponse);
+
 	}
 
 	static processResponse(response) {

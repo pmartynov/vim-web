@@ -10,6 +10,12 @@ const Constants = {
 				TOP: '/posts/top'
 			}
 		}
+	},
+	EOS: {
+		URL: {
+			BASE: 'http://188.166.103.60:8080',
+			GET_INFO: '/v1/chain/get_info'
+		}
 	}
 };
 

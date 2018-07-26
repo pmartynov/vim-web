@@ -18,7 +18,8 @@
   },
   "dependencies": {
     "create-react-server": "^0.3.2",
-    "eosjs": "^6.1.11",
+    "eosjs": "^16.0.0",
+    "eosjs-ecc": "^4.0.2",
     "es6-promise": "^4.1.1",
     "history": "^4.7.2",
     "isomorphic-fetch": "^2.2.1",

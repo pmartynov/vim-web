@@ -29,7 +29,6 @@ class SinglePost extends Component{
 }
 
 const mapStateToProps = (state) => {
-	console.log(getSinglePost(state));
 	const {author, description, tags, body, url, image_size} = getSinglePost(state);
 	return {
 		author, description, tags, body, url, image_size

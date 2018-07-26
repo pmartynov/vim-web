@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import LoginBtn from "../buttons/LoginBtn/LoginBtn";
 import './header.css';
+import Btn from "../buttons/Btn/btn";
+import EosService from "../../../services/EosService";
+import ResponseUtils from "../../../utils/ResponseUtils";
 
 class Header extends Component {
 
@@ -9,9 +12,10 @@ class Header extends Component {
 			<div className="container_header">
 				<div className="body_header main_container">
 					<LoginBtn/>
-					<div className="btn white-btn">
-						Upload photo
-					</div>
+					<Btn className="white-btn" value="Upload photo" onClick={() => {
+							ResponseUtils.toConsole(EosService.getInfo());
+						}}
+					/>
 				</div>
 			</div>
 		);
