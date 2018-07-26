@@ -34,8 +34,8 @@ class Login extends Component {
 					<div className="title_login content-column-start">
 						WELCOME TO VIM
 					</div>
-					<GrayInput className="input_login" type="text" ref={ref => this.name = ref} placeholder="Login"/>
-					<GrayInput className="input_login" type="password" ref={ref => this.password = ref} placeholder="Posting Key"/>
+					<GrayInput className="input_login" type="text" point="name" placeholder="Account name" setValue="test"/>
+					<GrayInput className="input_login" type="password" point="activeKey" placeholder="Private active key"/>
 					<Btn className="blue-btn submit_login" onClick={this.login.bind(this)} value="Login" />
 				</div>
 				<div className="background_login"/>

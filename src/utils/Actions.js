@@ -17,6 +17,9 @@ const Actions = {
 	AUTH: {
 		LOGIN: 'LOGIN',
 		LOGOUT: 'LOGOUT'
+	},
+	INPUT: {
+		CHANGE: 'INPUT_CHANGE'
 	}
 };
 
