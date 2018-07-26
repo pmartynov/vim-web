@@ -10,10 +10,17 @@ class EosService {
 		return RequestService.post(url, data);
 	}
 
-	static pivateToPublic(privateKey) {
+	static privateToPublic(privateKey) {
 		return ecc.privateToPublic(privateKey);
 	}
 
+	static getKeyAccounts(activeKey) {
+		const url = Constants.EOS.URL.BASE + Constants.EOS.URL.GET_KEY_ACCOUNTS;
+		const data = {
+			public_key: activeKey
+		};
+		return RequestService.post(url, data);
+	}
 }
 
 

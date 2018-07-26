@@ -35,6 +35,12 @@
     line-height: 1.43;
     color: #191919;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.post-title_post-info {
+    margin-bottom: 30px;
 }
 
 .tags_post-info {

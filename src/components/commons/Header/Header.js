@@ -13,8 +13,9 @@ class Header extends Component {
 				<div className="body_header main_container">
 					<LoginBtn/>
 					<Btn className="white-btn" value="Upload photo" onClick={() => {
-							ResponseUtils.toConsole(EosService.getInfo());
-						}}
+						ResponseUtils.toConsole(EosService.getKeyAccounts('EOS6ggdQVDb3XTURZzKDQp23WtpNS8KUDetSMLQMTm9AziyKjsuxB'));
+						//console.log(EosService.privateToPublic('5JLeFpnv2xfee51F1JgVJYF43c5BaikypDR2hNdckRJSgxBogze'));
+					}}
 					/>
 				</div>
 			</div>

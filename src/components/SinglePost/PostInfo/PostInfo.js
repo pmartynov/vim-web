@@ -19,7 +19,7 @@ class PostInfo extends React.Component {
 	}
 
 	render() {
-		const {author, description, tags, cost = '1,550 STEEM', byeFunc} = this.props;
+		const {author, title, description, tags, cost = '1,550 STEEM', byeFunc} = this.props;
 		return (
 			<div className="container_post-info" ref={ref => this.container = ref}>
 				<div className="title_post-info">
@@ -27,6 +27,7 @@ class PostInfo extends React.Component {
 					<span>{author}</span>
 				</div>
 				<div className="description_post-info">
+					<div className="post-title_post-info">{title}</div>
 					{description}
 					<ShowIf show={tags && tags.length > 0} className="tags_post-info content-row-start">
 						{renderTags(tags)}
