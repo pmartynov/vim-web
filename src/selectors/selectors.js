@@ -1,4 +1,5 @@
 import {createSelector} from 'reselect';
+import Constants from "../utils/Constants";
 
 export const getPosts = state => state.posts;
 export const getPostsList = state => state.postsList;
@@ -21,3 +22,10 @@ export const getSinglePost = createSelector(
 		return postInfo;
 	}
 );
+
+export const getLoginData = state => {
+	return {
+		account: state.inputs[Constants.INPUT.ACCOUNT],
+		activeKey: state.inputs[Constants.INPUT.ACTIVE_KEY]
+	}
+};

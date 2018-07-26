@@ -17,6 +17,10 @@ const Constants = {
 			GET_INFO: '/v1/chain/get_info',
 			GET_KEY_ACCOUNTS: '/v1/history/get_key_accounts'
 		}
+	},
+	INPUT: {
+		ACCOUNT: 'account',
+		ACTIVE_KEY: 'activeKey'
 	}
 };
 

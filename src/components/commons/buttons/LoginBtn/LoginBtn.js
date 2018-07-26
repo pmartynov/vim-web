@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import Btn from "../Btn/btn";
 import ShowIf from "../../../utils/ShowIf";
 import {push} from "react-router-redux";
-import {logoutAction} from "../../../../actions/login";
+import Actions from "../../../../utils/Actions";
 import './loginBtn.css';
 
 class LoginBtn extends Component {
@@ -26,7 +26,7 @@ class LoginBtn extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		authorized: state.auth.user && state.auth.activeKey,
+		authorized: state.auth.account && state.auth.activeKey,
 		location: state.router.location.pathname
 	}
 };
@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(push('/login'))
 		},
 		logout: () => {
-			dispatch(logoutAction())
+			dispatch({type: Actions.LOGOUT.REQUEST})
 		},
 	}
 };

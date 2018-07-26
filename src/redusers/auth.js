@@ -1,29 +1,29 @@
 import Actions from "../utils/Actions";
 
 const initialState = {
-	user: '',
+	account: '',
 	activeKey: '',
 	loginError: ''
 };
 
 export default function auth(state = initialState, action) {
 	switch (action.type) {
-		case Actions.AUTH.LOGIN:
+		case Actions.LOGIN.SUCCESS:
 			return {
 				...state,
-				user: action.user,
+				account: action.account,
 				activeKey: action.activeKey,
 			};
-		case Actions.AUTH.LOGOUT:
+		case Actions.LOGOUT:
 			return {
 				...state,
-				user: '',
+				account: '',
 				activeKey: '',
 			};
-		case Actions.AUTH.ERROR:
+		case Actions.LOGIN.ERROR:
 			return {
 				...state,
-				loginError: action.loginError
+				loginError: action.message
 			};
 
 		default:
