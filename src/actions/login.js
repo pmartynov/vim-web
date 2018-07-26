@@ -1,13 +1,12 @@
 import {push} from "react-router-redux";
 import Actions from "../utils/Actions";
 
-export function login(user, postingKey) {
+export function login(user, activeKey) {
 	return dispatch => {
 		dispatch({
 			type: Actions.AUTH.LOGIN,
 			user,
-			postingKey,
-			userId: 1
+			activeKey,
 		});
 	}
 }

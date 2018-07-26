@@ -2,8 +2,8 @@ import Actions from "../utils/Actions";
 
 const initialState = {
 	user: '',
-	postingKey: '',
-	userId: null
+	activeKey: '',
+	loginError: ''
 };
 
 export default function auth(state = initialState, action) {
@@ -12,16 +12,20 @@ export default function auth(state = initialState, action) {
 			return {
 				...state,
 				user: action.user,
-				postingKey: action.postingKey,
-				userId: action.userId
+				activeKey: action.activeKey,
 			};
 		case Actions.AUTH.LOGOUT:
 			return {
 				...state,
 				user: '',
-				postingKey: '',
-				userId: 0
+				activeKey: '',
 			};
+		case Actions.AUTH.ERROR:
+			return {
+				...state,
+				loginError: action.loginError
+			};
+
 		default:
 			return state;
 	}

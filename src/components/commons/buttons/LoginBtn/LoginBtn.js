@@ -26,7 +26,7 @@ class LoginBtn extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		authorized: state.auth.user && state.auth.userId && state.auth.postingKey,
+		authorized: state.auth.user && state.auth.activeKey,
 		location: state.router.location.pathname
 	}
 };
