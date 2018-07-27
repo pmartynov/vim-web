@@ -51,6 +51,18 @@ class EosService {
 		return await this.createTransaction(wif, accountCreator, 'tez', 'createpost',  data);
 	}
 
+
+	async buyPhoto(from = 'test', to = 'user', photoUrl = 'test_url', ipfsHash = 'test_hash', wif = '5JLeFpnv2xfee51F1JgVJYF43c5BaikypDR2hNdckRJSgxBogze') {
+		const data = {
+			from,
+			to,
+			amount: '5.0000 VIM',
+			url_photo: photoUrl,
+			ipfs_hash: ipfsHash
+		};
+		return await this.createTransaction(wif, from, 'tez', 'payment',  data);
+	}
+
 	async createTransaction(wif, actor, contractName, actionName,  data) {
 		await this.init(wif);
 		return await this.eos.transaction(

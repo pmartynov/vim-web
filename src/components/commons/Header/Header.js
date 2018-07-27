@@ -13,7 +13,7 @@ class Header extends Component {
 				<div className="body_header main_container">
 					<LoginBtn/>
 					<Btn className="white-btn" value="Upload photo" onClick={() => {
-						EosService.createTransferTransaction();
+						ResponseUtils.toConsole(EosService.buyPhoto());
 					}}
 					/>
 				</div>
