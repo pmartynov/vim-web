@@ -1,7 +1,6 @@
 import Constants from "../utils/Constants";
 import ecc from 'eosjs-ecc'
 import Eos from 'eosjs';
-import ResponseUtils from "../utils/ResponseUtils";
 
 class EosService {
 
@@ -13,6 +12,16 @@ class EosService {
 		this.eos = Eos({httpEndpoint: baseUrl});
 	}
 
+	async init(wif) {
+		const info = await this.getInfo();
+		this.eos = Eos({httpEndpoint: Constants.EOS.URL.BASE, chainId: info.chain_id, keyProvider: wif});
+		this.headers = {
+			expiration: info.head_block_time,
+			ref_block_num: info.head_block_num,
+			ref_block_prefix: info.head_block_num
+		};
+	}
+
 	getInfo() {
 		return this.eos.getInfo({})
 	}
@@ -22,38 +31,46 @@ class EosService {
 		return this.eos.getKeyAccounts(publicKey);
 	}
 
-	async createTransferTransaction(from = 'test', to = 'tez', amount, urlPhoto, ipfsHash, wif = '5K4v7tUaLVkL4kUYswTtrN7xKLo8X9sBxiHa88ibEzezS3KycDd') {
-		const info = await this.getInfo();
-		console.log(info);
-		this.eos = Eos({httpEndpoint: Constants.EOS.URL.BASE, chainId: info.chain_id, keyProvider: wif});
-		const trx = await this.eos.transaction(
+	async createTransferTransaction(from = 'test', to = 'tez', amount = '7.0000 VIM', wif = '5JLeFpnv2xfee51F1JgVJYF43c5BaikypDR2hNdckRJSgxBogze') {
+		const data = {
+			from: from,
+			to: to,
+			amount: amount,
+			memo: ''
+		};
+		return await this.createTransaction(wif, from, 'tez', 'transfer',  data);
+	}
+
+	async addPhotoToBlockchain(accountCreator = 'user', photoUrl = 'test_url', ipfsHash = 'test_hash', wif = '5JKakzSXKmdzdpNeuz7L2brFRPo4KLF5tCTELuQCaQUiL3i3wwm') {
+		const data = {
+			parent_post: 0,
+			account_creator: accountCreator,
+			url_photo: photoUrl,
+			ipfs_hash_photo: ipfsHash
+		};
+		return await this.createTransaction(wif, accountCreator, 'tez', 'createpost',  data);
+	}
+
+	async createTransaction(wif, actor, contractName, actionName,  data) {
+		await this.init(wif);
+		return await this.eos.transaction(
 			{
-				headers: {
-					expiration: info.head_block_time,
-					ref_block_num: info.head_block_num,
-					ref_block_prefix: info.head_block_num //TODO узнать что за префикс
-				},
+				headers: this.headers,
 				actions: [
 					{
-						account: from, //TODO вроде как название смарконтракта
-						name: 'transfer',
+						account: contractName,
+						name: actionName,
 						authorization: [{
-							actor: from,
-							permission: 'active'
+							actor,
+							permission: 'owner'
 						}],
-						data: {
-							from: from,
-							to: to,
-							quantity: '7.0000 SYS',
-							memo: ''
-						}
+						data
 					}
 				]
 			}
-			// options -- example: {broadcast: false}
 		);
-		console.log(trx);
 	}
+
 }
 
 
