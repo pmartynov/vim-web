@@ -13,9 +13,7 @@ const Constants = {
 	},
 	EOS: {
 		URL: {
-			BASE: 'http://188.166.103.60:8080',
-			GET_INFO: '/v1/chain/get_info',
-			GET_KEY_ACCOUNTS: '/v1/history/get_key_accounts'
+			BASE: 'http://188.166.103.60:8080'
 		}
 	},
 	INPUT: {
