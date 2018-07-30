@@ -1,6 +1,6 @@
 import {call, put, select, takeEvery} from 'redux-saga/effects';
 import Actions from '../utils/Actions';
-import {getLoginData} from '../selectors/selectors';
+import {getAuth} from '../selectors/selectors';
 import EosService from '../services/EosService';
 import {push} from 'react-router-redux';
 
@@ -10,7 +10,7 @@ export function* loginWatcher() {
 
 function* loginWorker() {
 	try {
-		const loginData = yield select(getLoginData);
+		const loginData = yield select(getAuth);
 		const publicKey = yield call(() => EosService.privateToPublic(loginData.ownerKey));
 		const response = yield call(() => EosService.getKeyAccounts(publicKey));
 		if (response.account_names.includes(loginData.account)) {

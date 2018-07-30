@@ -19,7 +19,7 @@ class PostInfo extends React.Component {
 	}
 
 	render() {
-		const {author, title, description, tags, cost = '1,550 STEEM', byeFunc} = this.props;
+		const {author, title, description, tags, cost = '1,550 STEEM', bueFunc} = this.props;
 		return (
 			<div className="container_post-info" ref={ref => this.container = ref}>
 				<div className="title_post-info">
@@ -33,12 +33,12 @@ class PostInfo extends React.Component {
 						{renderTags(tags)}
 					</ShowIf>
 				</div>
-				<div className="bye_post-info">container_app
+				<div className="bue_post-info">container_app
 					<div className="cost_post-info">
 						<label>Cost</label>
 						<span>{cost}</span>
 					</div>
-					<Btn className="blue-btn" value="BYE THIS PHOTO" onClick={byeFunc}/>
+					<Btn className="blue-btn" value="BUE THIS PHOTO" onClick={bueFunc}/>
 				</div>
 			</div>
 		);
