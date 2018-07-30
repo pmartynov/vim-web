@@ -2,7 +2,7 @@ import Actions from "../utils/Actions";
 
 const initialState = {
 	account: '',
-	activeKey: '',
+	ownerKey: '',
 	loginError: ''
 };
 
@@ -12,13 +12,13 @@ export default function auth(state = initialState, action) {
 			return {
 				...state,
 				account: action.account,
-				activeKey: action.activeKey,
+				ownerKey: action.ownerKey,
 			};
 		case Actions.LOGOUT:
 			return {
 				...state,
 				account: '',
-				activeKey: '',
+				ownerKey: '',
 			};
 		case Actions.LOGIN.ERROR:
 			return {

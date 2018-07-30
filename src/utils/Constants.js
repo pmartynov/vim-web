@@ -18,7 +18,7 @@ const Constants = {
 	},
 	INPUT: {
 		ACCOUNT: 'account',
-		ACTIVE_KEY: 'activeKey'
+		OWNER_KEY: 'ownerKey'
 	}
 };
 

@@ -11,10 +11,10 @@ export function* loginWatcher() {
 function* loginWorker() {
 	try {
 		const loginData = yield select(getLoginData);
-		const publicKey = yield call(() => EosService.privateToPublic(loginData.activeKey));
+		const publicKey = yield call(() => EosService.privateToPublic(loginData.ownerKey));
 		const response = yield call(() => EosService.getKeyAccounts(publicKey));
 		if (response.account_names.includes(loginData.account)) {
-			yield put({type: Actions.LOGIN.SUCCESS, account: loginData.account, activeKey: loginData.activeKey});
+			yield put({type: Actions.LOGIN.SUCCESS, account: loginData.account, ownerKey: loginData.ownerKey});
 			yield put(push('/index'));
 		} else {
 			yield put({type: Actions.LOGIN.ERROR, message: 'Неверный ключ или аккаунт.'})

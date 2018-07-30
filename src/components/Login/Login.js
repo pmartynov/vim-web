@@ -32,7 +32,7 @@ class Login extends Component {
 						WELCOME TO VIM
 					</div>
 					<GrayInput className="input_login" type="text" point={Constants.INPUT.ACCOUNT} placeholder="Account name"/>
-					<GrayInput className="input_login" type="password" point={Constants.INPUT.ACTIVE_KEY}
+					<GrayInput className="input_login" type="password" point={Constants.INPUT.OWNER_KEY}
 					           placeholder="Private active key"/>
 					<Btn className="blue-btn submit_login" onClick={login} value="Login"/>
 				</div>
@@ -43,9 +43,9 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => {
-	const {account, activeKey, loginError} = state.auth;
+	const {account, ownerKey, loginError} = state.auth;
 	return {
-		isAuth: !!account && !!activeKey,
+		isAuth: !!account && !!ownerKey,
 		error: loginError
 	}
 };
