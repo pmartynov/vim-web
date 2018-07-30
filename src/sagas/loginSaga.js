@@ -1,11 +1,11 @@
-import {takeEvery, select, call, put} from 'redux-saga/effects';
-import Actions from "../utils/Actions";
-import {getLoginData} from "../selectors/selectors";
-import EosService from "../services/EosService";
-import {push} from "react-router-redux";
+import {call, put, select, takeEvery} from 'redux-saga/effects';
+import Actions from '../utils/Actions';
+import {getLoginData} from '../selectors/selectors';
+import EosService from '../services/EosService';
+import {push} from 'react-router-redux';
 
 export function* loginWatcher() {
-	yield takeEvery(Actions.LOGIN.REQUEST, loginWorker)
+	yield takeEvery(Actions.LOGIN.REQUEST, loginWorker);
 }
 
 function* loginWorker() {
@@ -16,10 +16,11 @@ function* loginWorker() {
 		if (response.account_names.includes(loginData.account)) {
 			yield put({type: Actions.LOGIN.SUCCESS, account: loginData.account, ownerKey: loginData.ownerKey});
 			yield put(push('/index'));
+			yield put(push('/index'));
 		} else {
-			yield put({type: Actions.LOGIN.ERROR, message: 'Неверный ключ или аккаунт.'})
+			yield put({type: Actions.LOGIN.ERROR, message: 'Неверный ключ или аккаунт.'});
 		}
 	} catch (e) {
-		yield put({type: Actions.LOGIN.ERROR, message: 'Что-то пошло не так', error: e})
+		yield put({type: Actions.LOGIN.ERROR, message: 'Что-то пошло не так', error: e});
 	}
 }

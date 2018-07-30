@@ -15,11 +15,7 @@ export default function auth(state = initialState, action) {
 				ownerKey: action.ownerKey,
 			};
 		case Actions.LOGOUT:
-			return {
-				...state,
-				account: '',
-				ownerKey: '',
-			};
+			return initialState;
 		case Actions.LOGIN.ERROR:
 			return {
 				...state,
