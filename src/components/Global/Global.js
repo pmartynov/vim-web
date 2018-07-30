@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
 import CssUtils from "../../utils/CssUtils";
+import InfoModal from '../commons/InfoModal/InfoModal';
 
 class Global extends Component {
 
@@ -25,6 +26,7 @@ class Global extends Component {
 	render() {
 		return (
 			<Fragment>
+				<InfoModal/>
 			</Fragment>
 		);
 	}
