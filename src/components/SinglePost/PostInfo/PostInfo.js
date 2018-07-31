@@ -1,15 +1,15 @@
 import React from 'react';
-import './postInfo.css';
-import Btn from "../../commons/buttons/Btn/btn";
-import ShowIf from "../../utils/ShowIf";
-import Tag from "./Tag/Tag";
-import CssUtils from "../../../utils/CssUtils";
+import Btn from '../../commons/buttons/Btn/btn';
+import ShowIf from '../../utils/ShowIf';
+import Tag from './Tag/Tag';
+import CssUtils from '../../../utils/CssUtils';
 import connect from 'react-redux/es/connect/connect';
-import {getSinglePost} from '../../../selectors/selectors';
+import {getAuth, getSinglePost} from '../../../selectors/selectors';
 import renderHTML from 'react-render-html';
 import MarkdownParser from '../../../utils/MarkdownParser';
 import Actions from '../../../utils/Actions';
 import Constants from '../../../utils/Constants';
+import './postInfo.css';
 
 class PostInfo extends React.Component {
 
@@ -56,7 +56,7 @@ class PostInfo extends React.Component {
 function renderTags(tags) {
 	return tags.map(
 		(tag, index) => tag !== 'steepshot' ? <Tag key={index} value={tag} className="tag_post-info"/> : null
-	)
+	);
 }
 
 
@@ -68,7 +68,7 @@ const mapStateToProps = (state) => {
 		author,
 		tags,
 		image_size,
-		isAuth: state.auth.account && state.auth.ownerKey
+		isAuth: getAuth(state).authorized
 	};
 };
 

@@ -1,12 +1,13 @@
-import React, {Component} from "react";
-import {connect} from "react-redux";
-import {push} from "react-router-redux";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {push} from 'react-router-redux';
+import {getAuth} from '../../../selectors/selectors';
 
 class PrivateRoute extends Component {
 
 	componentDidMount() {
 		if (!this.props.isAuth) {
-			this.props.dispatch(push('/login'))
+			this.props.dispatch(push('/login'));
 		}
 	}
 
@@ -22,8 +23,8 @@ class PrivateRoute extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		isAuth: !!state.auth.account && !!state.auth.ownerKey
-	}
+		isAuth: getAuth(state).authorized
+	};
 };
 
 export default connect(mapStateToProps)(PrivateRoute);

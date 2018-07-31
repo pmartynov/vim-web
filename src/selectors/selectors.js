@@ -29,3 +29,11 @@ export const getAuthInputs = state => {
 		ownerKey: state.inputs[Constants.INPUT.OWNER_KEY]
 	}
 };
+
+export const getAuth = state => {
+	return {
+		account: state.auth.account,
+		ownerKey: state.auth.ownerKey,
+		authorized: !!state.auth.account && !!state.auth.ownerKey
+	}
+};
