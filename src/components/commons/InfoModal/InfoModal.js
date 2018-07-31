@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import './infoModal.css';
 import ShowIf from '../../utils/ShowIf';
 import Btn from '../buttons/Btn/btn';
-import {hideInfoModal} from '../../../actions/infoModal';
+import Actions from '../../../utils/Actions';
 
 class InfoModal extends Component {
 
@@ -60,7 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		hideInfoModal: () => {
-			dispatch(hideInfoModal());
+			dispatch({type: Actions.MODAL.INFO.HIDE});
 		}
 	};
 };
