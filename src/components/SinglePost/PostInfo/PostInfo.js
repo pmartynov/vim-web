@@ -3,7 +3,7 @@ import Btn from '../../commons/buttons/Btn/btn';
 import ShowIf from '../../utils/ShowIf';
 import Tag from './Tag/Tag';
 import CssUtils from '../../../utils/CssUtils';
-import connect from 'react-redux/es/connect/connect';
+import {connect} from 'react-redux';
 import {getAuth, getSinglePost} from '../../../selectors/selectors';
 import renderHTML from 'react-render-html';
 import MarkdownParser from '../../../utils/MarkdownParser';
