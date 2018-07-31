@@ -45,6 +45,10 @@ const Constants = {
 	INPUT: {
 		ACCOUNT: 'account',
 		OWNER_KEY: 'ownerKey'
+	},
+
+	STORAGE: {
+		PREFIX: 'VIM_'
 	}
 };
 

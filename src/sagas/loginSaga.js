@@ -3,6 +3,7 @@ import Actions from '../utils/Actions';
 import {getAuthInputs} from '../selectors/selectors';
 import EosService from '../services/EosService';
 import {push} from 'react-router-redux';
+import {VimStorage} from '../utils/VimStorage';
 
 export function* loginWatcher() {
 	yield takeEvery(Actions.LOGIN.REQUEST, loginWorker);
@@ -14,6 +15,8 @@ function* loginWorker() {
 		const publicKey = yield call(() => EosService.privateToPublic(loginData.ownerKey));
 		const response = yield call(() => EosService.getKeyAccounts(publicKey));
 		if (response.account_names.includes(loginData.account)) {
+			VimStorage.account = loginData.account;
+			VimStorage.ownerKey = loginData.ownerKey;
 			yield put({type: Actions.LOGIN.SUCCESS, account: loginData.account, ownerKey: loginData.ownerKey});
 			yield put(push('/index'));
 			yield put(push('/index'));

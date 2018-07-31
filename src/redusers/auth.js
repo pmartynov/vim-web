@@ -1,8 +1,9 @@
 import Actions from "../utils/Actions";
+import {VimStorage} from '../utils/VimStorage';
 
 const initialState = {
-	account: '',
-	ownerKey: '',
+	account: VimStorage.account || '',
+	ownerKey: VimStorage.ownerKey || '',
 	loginError: ''
 };
 
@@ -15,7 +16,11 @@ export default function auth(state = initialState, action) {
 				ownerKey: action.ownerKey,
 			};
 		case Actions.LOGOUT:
-			return initialState;
+			return {
+				account: '',
+				ownerKey: '',
+				loginError: ''
+			};
 		case Actions.LOGIN.ERROR:
 			return {
 				...state,
