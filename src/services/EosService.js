@@ -26,24 +26,27 @@ class EosService {
 		return this.eos.getKeyAccounts(publicKey);
 	}
 
-	async addPhotoToBlockchain(wif, creator, photoUrl, ipfsHash, cost = Constants.EOS.COST.PHOTO) {
+	async addPhotoToBlockchain(wif, creator, photoUrl, ipfsHash, created, cost = Constants.EOS.COST.PHOTO) {
 		const data = {
 			parent_post: 0,
 			account_creator: creator,
 			url_photo: photoUrl,
 			ipfs_hash: ipfsHash,
-			value: cost
+			value: cost,
+			date_create: created
 		};
 		return await this.createTransaction(wif, creator, Constants.EOS.CONTRACT.PHOTO.ADD, Constants.EOS.ACTION.PHOTO.ADD, data);
 	}
 
-	async buyPhoto(wif, buyer, to, photoUrl, ipfsHash) {
+	async buyPhoto(wif, buyer, to, photoUrl, ipfsHash, created) {
 		const data = {
 			from: buyer,
 			to,
 			url_photo: photoUrl,
-			ipfs_hash: ipfsHash
+			ipfs_hash: ipfsHash,
+			date_create: created
 		};
+
 		return await this.createTransaction(wif, buyer, Constants.EOS.CONTRACT.PHOTO.BUE, Constants.EOS.ACTION.PHOTO.BUE, data);
 	}
 

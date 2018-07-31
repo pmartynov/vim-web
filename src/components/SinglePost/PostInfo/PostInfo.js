@@ -4,6 +4,12 @@ import Btn from "../../commons/buttons/Btn/btn";
 import ShowIf from "../../utils/ShowIf";
 import Tag from "./Tag/Tag";
 import CssUtils from "../../../utils/CssUtils";
+import connect from 'react-redux/es/connect/connect';
+import {getSinglePost} from '../../../selectors/selectors';
+import renderHTML from 'react-render-html';
+import MarkdownParser from '../../../utils/MarkdownParser';
+import Actions from '../../../utils/Actions';
+import Constants from '../../../utils/Constants';
 
 class PostInfo extends React.Component {
 
@@ -19,7 +25,7 @@ class PostInfo extends React.Component {
 	}
 
 	render() {
-		const {author, title, description, tags, cost = '1,550 STEEM', bueFunc} = this.props;
+		const {author, title, description, tags, cost = Constants.EOS.COST.PHOTO, buePhoto, isAuth} = this.props;
 		return (
 			<div className="container_post-info" ref={ref => this.container = ref}>
 				<div className="title_post-info">
@@ -38,7 +44,9 @@ class PostInfo extends React.Component {
 						<label>Cost</label>
 						<span>{cost}</span>
 					</div>
-					<Btn className="blue-btn" value="BUE THIS PHOTO" onClick={bueFunc}/>
+					<ShowIf show={isAuth}>
+						<Btn className="blue-btn" value="BUE THIS PHOTO" onClick={buePhoto}/>
+					</ShowIf>
 				</div>
 			</div>
 		);
@@ -51,4 +59,26 @@ function renderTags(tags) {
 	)
 }
 
-export default PostInfo;
+
+const mapStateToProps = (state) => {
+	const {author, description, title, tags, image_size} = getSinglePost(state);
+	return {
+		description: renderHTML(MarkdownParser.parse(description)),
+		title: renderHTML(MarkdownParser.parseTitle(title)),
+		author,
+		tags,
+		image_size,
+		isAuth: state.auth.account && state.auth.ownerKey
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		buePhoto: (e) => {
+			e.stopPropagation();
+			dispatch({type: Actions.POST.BUE.REQUEST});
+		}
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostInfo);

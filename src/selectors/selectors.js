@@ -23,7 +23,7 @@ export const getSinglePost = createSelector(
 	}
 );
 
-export const getAuth = state => {
+export const getAuthInputs = state => {
 	return {
 		account: state.inputs[Constants.INPUT.ACCOUNT],
 		ownerKey: state.inputs[Constants.INPUT.OWNER_KEY]
