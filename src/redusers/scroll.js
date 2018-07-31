@@ -4,7 +4,8 @@ const scrollInitState = {
 	request: 'EMPTY_SCROLL_FETCH',
 	success: null,
 	error: null,
-	deltaForFetch: 1000
+	deltaForFetch: 1000,
+	hasMore: true
 };
 export default function scroll(state = {}, action) {
 	switch (action.type) {
@@ -49,6 +50,7 @@ export default function scroll(state = {}, action) {
 								[point]: {
 									...state[point],
 									active: true,
+									hasMore: action.hasMore
 								}
 							};
 						default:
