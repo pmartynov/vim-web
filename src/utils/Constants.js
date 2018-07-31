@@ -16,7 +16,7 @@ const Constants = {
 
 	EOS: {
 		URL: {
-			BASE: 'http://188.166.103.60:8080'
+			BASE: 'https://eosnode.steepshot.io'
 		},
 		CONTRACT: {
 			PHOTO: {
