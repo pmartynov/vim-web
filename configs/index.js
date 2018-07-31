@@ -109,7 +109,7 @@ function createExpressMiddleware(options) {
  * @param {string} [options.initialStateKey] key in `window` object that will be used to pass initial props, default = `__INITIAL_PROPS__`
  * @param {string} [options.initialPropsKey] key in `window` object that will be used to pass initial state, default = `__INITIAL_STATE__`
  * @param {string[]} [options.skipExtensions] array of strings that represent most commonly imported non-JS extensions that has to be skipped during server build, default = `['css', 'jpg', 'gif', ...]`
- * @param {number} [options.port] listening port, default = `3000`
+ * @param {number} [options.port] listening port, default = `3001`
  * @param {function} [options.listen] Express's listen function
  * @return {Function}
  */
@@ -118,7 +118,7 @@ function createExpressServer(options) {
 	skipRequireExtensions(options.skipExtensions || null);
 
 	var app = express();
-	var port = options.port || 3000;
+	var port = options.port || 3001;
 
 	app.use(createExpressMiddleware(options));
 
