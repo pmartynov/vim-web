@@ -46,7 +46,8 @@ const mapDispatchToProps = (dispatch, props) => {
 		getPostInfo: () => {
 			dispatch({type: Actions.POST.REQUEST, url: props.match.params.author + '/' + props.match.params.permlink});
 		},
-		buePhoto: () => {
+		buePhoto: (e) => {
+			e.stopPropagation();
 			dispatch({type: Actions.POST.BUE.REQUEST});
 		}
 	};

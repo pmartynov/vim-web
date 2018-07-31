@@ -6,6 +6,7 @@ import scroll from "./scroll";
 import postsList from "./postsList";
 import posts from "./posts";
 import inputs from "./inputs";
+import infoModal from './infoModal';
 
 export default combineReducers({
 	auth,
@@ -14,5 +15,6 @@ export default combineReducers({
 	scroll,
 	postsList,
 	posts,
-	inputs
+	inputs,
+	infoModal
 });

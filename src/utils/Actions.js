@@ -27,6 +27,12 @@ const Actions = {
 	LOGOUT: 'LOGOUT',
 	INPUT: {
 		CHANGE: 'INPUT_CHANGE'
+	},
+	MODAL: {
+		INFO: {
+			SHOW: 'INFO_MODAL_SHOW',
+			HIDE: 'INFO_MODAL_HIDE'
+		}
 	}
 };
 

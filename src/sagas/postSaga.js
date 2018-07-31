@@ -4,6 +4,7 @@ import SteepshotApi from '../services/SteepshotApi';
 import {getAuth, getSinglePost} from '../selectors/selectors';
 import EosService from '../services/EosService';
 import Constants from '../utils/Constants';
+import {showInfoModal} from '../actions/infoModal';
 
 export function* postWatcher() {
 	yield takeEvery(Actions.POST.REQUEST, postWorker);
@@ -33,6 +34,8 @@ function* buePhotoWorker() {
 			Constants.EOS.USER.CREATOR.ACCOUNT, body, ipfs));
 
 		yield call(() => EosService.buyPhoto(ownerKey, account, Constants.EOS.USER.CREATOR.ACCOUNT, body, ipfs));
+		yield put({type: Actions.POST.BUE.SUCCESS});
+		yield put(showInfoModal('Transaction ID', 'tesfsdfsdfsdfsdfsdfsdfsdfasgafwefgsgwrgw'));
 	} catch (e) {
 		yield put({type: Actions.POST.BUE.ERROR, message: 'Что-то пошло не так', error: e});
 	}
