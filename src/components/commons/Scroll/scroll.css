@@ -5,3 +5,8 @@
     width: 6px;
     right: 2px;
 }
+
+.loader_scroll {
+    width: 100%;
+    height: 80px;
+}

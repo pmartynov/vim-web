@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Scrollbars} from 'react-custom-scrollbars';
 import ReactResizeDetector from 'react-resize-detector';
 import Actions from "../../../utils/Actions";
+import Spinner from '../../Spinner/Spinner';
 import './scroll.css';
 
 class Scroll extends React.Component {
@@ -48,6 +49,9 @@ class Scroll extends React.Component {
 			>
 				<div className={this.props.className}>
 					{this.props.children}
+					<div className="loader_scroll">
+						<Spinner />
+					</div>
 					<ReactResizeDetector handleHeight onResize={this.update}/>
 				</div>
 			</Scrollbars>
