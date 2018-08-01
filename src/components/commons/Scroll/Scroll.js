@@ -3,9 +3,7 @@ import {connect} from 'react-redux';
 import {Scrollbars} from 'react-custom-scrollbars';
 import ReactResizeDetector from 'react-resize-detector';
 import Actions from '../../../utils/Actions';
-import Spinner from '../../Spinner/Spinner';
 import './scroll.css';
-import ShowIf from '../../utils/ShowIf';
 
 class Scroll extends React.Component {
 
@@ -18,12 +16,12 @@ class Scroll extends React.Component {
 	}
 
 	shouldComponentUpdate(nextProps) {
-		return nextProps.location !== this.props.location || nextProps.hasMore !== this.props.hasMore;
+		return nextProps.location !== this.props.location;
 	}
 
 	onScrollFrame(values) {
-		const {deltaForFetch, active, hasMore} = this.props;
-		if (active && hasMore && (values.scrollHeight - values.scrollTop < deltaForFetch)) {
+		const {deltaForFetch, active} = this.props;
+		if (active && (values.scrollHeight - values.scrollTop < deltaForFetch)) {
 			this.props.shouldFetchFunc(this.props.request);
 		}
 	}
@@ -50,11 +48,6 @@ class Scroll extends React.Component {
 			>
 				<div className={this.props.className}>
 					{this.props.children}
-					<ShowIf show={this.props.hasMore}>
-						<div className="loader_scroll">
-							<Spinner/>
-						</div>
-					</ShowIf>
 					<ReactResizeDetector handleHeight onResize={this.update}/>
 				</div>
 			</Scrollbars>
@@ -68,12 +61,11 @@ Scroll.defaultProps = {
 
 const mapStateToProps = (state, props) => {
 	const scrollState = state.scroll[props.point] || {};
-	const {active, request, deltaForFetch, hasMore} = scrollState;
+	const {active, request, deltaForFetch} = scrollState;
 	return {
 		active,
 		request,
 		deltaForFetch,
-		hasMore,
 		location: state.router.location
 	};
 };

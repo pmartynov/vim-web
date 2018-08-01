@@ -5,6 +5,8 @@ import Post from "../commons/Post/Post";
 import Constants from "../../utils/Constants";
 import Actions from "../../utils/Actions";
 import {getPostsList} from "../../selectors/selectors";
+import Spinner from '../Spinner/Spinner';
+import ShowIf from '../utils/ShowIf';
 import './index.css';
 
 class Index extends Component {
@@ -32,6 +34,11 @@ class Index extends Component {
 				<div className="container_index">
 					<Helmet title='Index'/>
 					{this.getPosts()}
+					<ShowIf show={this.props.hasMore}>
+						<div className="loader_scroll">
+							<Spinner/>
+						</div>
+					</ShowIf>
 				</div>
 		);
 	}
