@@ -20,8 +20,8 @@ const Constants = {
 		},
 		CONTRACT: {
 			PHOTO: {
-				ADD: 'vim.media',
-				BUE: 'vim.token'
+				ADD: 'vimmedia',
+				BUE: 'vimtoken'
 			}
 		},
 		ACTION: {
@@ -36,7 +36,7 @@ const Constants = {
 		},
 		USER: {
 			CREATOR: {
-				ACCOUNT: 'vim.media',
+				ACCOUNT: 'vimmedia',
 				OWNER_KEY: '5K5uXwfsdmxLEXYowXij1QhtHWukdzv8RkHzW5frNjwW6hmbmZh'
 			}
 		}
